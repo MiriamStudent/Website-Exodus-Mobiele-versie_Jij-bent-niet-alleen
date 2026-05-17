@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1B2B6B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Jij telt mee — Exodus Nederland</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&family=Caveat:wght@600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1B2B6B;--navy-dark:#111C4E;--navy-mid:#2A3F8F;
+  --pink:#D91472;--pink-dark:#A80E59;--pink-light:#FAE0EF;
+  --blue-light:#D2E5F4;--blue-mid:#B5CFEA;
+  --white:#FFFFFF;--sand:#F4F7FB;--text:#1A1A1A;--muted:#555555;--border:#C8D8E8;
+  --bg-page:#F0F6FB;
+  --green:#1B5E38;--green-light:#E6F3EC;
+  --orange:#E87722;--orange-light:#FBE8DA;
+  --purple:#5A3A8A;--purple-light:#EEEDFE;
+}
+body{margin:0;padding:0;font-family:'DM Sans',sans-serif;background:var(--bg-page);}
+.site{font-family:'DM Sans',sans-serif;background:var(--bg-page);color:var(--text);min-height:600px}
+.nav{background:var(--white);border-bottom:3px solid var(--pink);padding:0 1.25rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:20;box-shadow:0 2px 10px rgba(27,43,107,.1)}
+.nav-brand{cursor:pointer;flex-shrink:0}
+.nav-label{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--pink);text-transform:uppercase}
+.nav-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);font-weight:700;line-height:1}
+.nav-links{display:none}
+.nav-btn{padding:5px 9px;border-radius:14px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;transition:all .15s;white-space:nowrap}
+.nav-btn:hover{background:var(--blue-light);color:var(--navy)}
+.nav-btn.active{background:var(--pink);color:white}
+.nav-cta{padding:7px 14px;border-radius:20px;background:var(--pink);color:white;font-size:11px;font-weight:700;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;flex-shrink:0}.nav > .nav-cta{display:none}
+.nav-cta:hover{background:var(--pink-dark)}
+.page{display:none;position:relative}.page.active{display:block}
+.page.slide-in-right{animation:slideInRight .28s cubic-bezier(.25,.46,.45,.94) both}
+.page.slide-in-left{animation:slideInLeft .28s cubic-bezier(.25,.46,.45,.94) both}
+.page.slide-out-right{animation:slideOutRight .28s cubic-bezier(.25,.46,.45,.94) both}
+.page.slide-out-left{animation:slideOutLeft .28s cubic-bezier(.25,.46,.45,.94) both}
+@keyframes slideInRight{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-48px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideOutRight{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(48px)}}
+@keyframes slideOutLeft{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-48px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.section{padding:2rem 1.75rem}
+.section-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pink);margin-bottom:.5rem;display:block}
+.section-title{font-family:'Playfair Display',serif;font-size:26px;color:var(--navy);font-weight:700;margin-bottom:.4rem;line-height:1.2}
+.section-sub{font-size:14px;color:var(--muted);margin-bottom:1.25rem;line-height:1.6}
+.divider{height:1px;background:var(--blue-mid);margin:0 1.75rem}
+.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pink);margin-bottom:6px;background:var(--pink-light);padding:3px 8px;border-radius:6px}
+.btn-primary{padding:10px 22px;border-radius:20px;background:var(--pink);color:white;font-size:13px;font-weight:700;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-primary:hover{background:var(--pink-dark)}
+.btn-dark{padding:10px 22px;border-radius:20px;background:var(--navy);color:white;font-size:13px;font-weight:700;border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-ghost{padding:10px 22px;border-radius:20px;background:transparent;color:white;font-size:13px;font-weight:600;border:2px solid rgba(255,255,255,.6);cursor:pointer;font-family:'DM Sans',sans-serif}
+.handwritten{font-family:'Caveat',cursive;font-size:17px;color:var(--pink);display:block;margin-top:8px}
+.cover{background:linear-gradient(150deg,var(--navy-dark) 0%,var(--navy) 60%,var(--navy-mid) 100%);padding:2.5rem 1.75rem 0;overflow:hidden}
+.cover-inner{display:flex;align-items:flex-end;gap:1.5rem}
+.cover-text{flex:1;min-width:0}
+.cover-illustration{flex-shrink:0;width:260px;align-self:flex-end;display:flex;align-items:flex-end}
+.cover-illustration svg{width:100%;height:auto;display:block}
+.cover-eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.7);text-transform:uppercase;margin-bottom:.75rem}
+.cover h1{font-family:'Playfair Display',serif;font-size:44px;line-height:1.05;color:white;font-weight:900;margin-bottom:.85rem}
+.cover h1 em{color:#FFC0DC;font-style:italic}
+.cover-intro{font-size:14px;color:rgba(255,255,255,.88);line-height:1.65;margin-bottom:1.75rem}
+.cover-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2.25rem}
+.wave{height:50px;background:var(--bg-page);clip-path:ellipse(60% 100% at 50% 100%);margin-top:-1px}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feature-card{background:var(--white);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .15s;border:1.5px solid var(--border);box-shadow:0 2px 8px rgba(27,43,107,.06)}
+.feature-card:hover{transform:translateY(-2px);border-color:var(--pink);box-shadow:0 4px 16px rgba(217,20,114,.12)}
+.feature-top{height:100px;display:flex;align-items:center;justify-content:center;font-size:40px}
+.feature-body{padding:.85rem}
+.feature-body h3{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);line-height:1.3;margin-bottom:4px}
+.feature-body p{font-size:11.5px;color:var(--muted);line-height:1.5}
+.pull-quote{background:var(--navy);border-radius:14px;padding:2rem;margin:1.25rem 0;border-left:4px solid var(--pink)}
+.pull-quote blockquote{font-family:'Playfair Display',serif;font-size:18px;color:white;font-style:italic;line-height:1.6;margin-bottom:.75rem}
+.pull-quote cite{font-size:12px;color:rgba(255,255,255,.65);font-style:normal;font-weight:600}
+.niet-alleen{background:var(--white);border-radius:14px;padding:1.5rem;border:1.5px solid var(--border);border-left:4px solid var(--pink);margin-bottom:1.25rem;box-shadow:0 2px 8px rgba(27,43,107,.06)}
+.niet-alleen-num{font-family:'Playfair Display',serif;font-size:36px;color:var(--pink);font-weight:700;line-height:1;margin-bottom:.4rem}
+.niet-alleen h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:.5rem;line-height:1.3}
+.niet-alleen p{font-size:13px;color:var(--muted);line-height:1.6}
+.story-hero{background:linear-gradient(150deg,var(--blue-light) 0%,var(--blue-mid) 100%);padding:2.5rem 1.75rem 2rem;text-align:center}
+.story-hero h1{font-family:'Playfair Display',serif;font-size:36px;color:var(--navy);font-weight:900;line-height:1.1;margin-bottom:.6rem}
+.story-hero h1 em{color:var(--pink);font-style:italic}
+.story-item{background:var(--white);border-radius:14px;padding:1.5rem;margin-bottom:12px;display:grid;grid-template-columns:44px 1fr;gap:1rem;border:1.5px solid var(--border)}
+.story-num{font-family:'Playfair Display',serif;font-size:36px;color:var(--blue-mid);font-weight:900;line-height:1;align-self:start}
+.story-item h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);margin-bottom:6px;line-height:1.3}
+.story-item p{font-size:13px;color:var(--muted);line-height:1.6}
+.gevoel-hero{background:linear-gradient(150deg,var(--blue-light) 0%,var(--pink-light) 100%);padding:2.5rem 1.75rem 2rem;text-align:center}
+.gevoel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gevoel-card{background:var(--white);border-radius:14px;padding:1rem .75rem;text-align:center;border:1.5px solid var(--border);transition:transform .15s}
+.gevoel-card:hover{transform:scale(1.03);border-color:var(--pink)}
+.gevoel-card.gc-blue{background:#EAF4FD;border-color:#A8CDE8}
+.gevoel-card.gc-pink{background:#FAE0EF;border-color:#F0A0C8}
+.gevoel-card.gc-yellow{background:#FEF9E7;border-color:#F5D66A}
+.gevoel-card.gc-green{background:#E6F3EC;border-color:#8FD0A8}
+.gevoel-card.gc-purple{background:#EEEDFE;border-color:#B8ADEE}
+.gevoel-card.gc-orange{background:#FBE8DA;border-color:#F0B88A}
+.gevoel-emoji{font-size:28px;margin-bottom:5px;display:block}
+.gevoel-card h3{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.gevoel-card p{font-size:10.5px;color:var(--muted);line-height:1.45}
+/* Hoe voel je je vandaag */
+.vandaag-wrap{background:var(--white);border-radius:16px;padding:1.25rem 1.5rem;border:1.5px solid var(--border);margin-bottom:1.25rem;box-shadow:0 2px 8px rgba(27,43,107,.06)}
+.vandaag-emoji-row{display:flex;justify-content:space-between;gap:6px;margin:.75rem 0}
+.vandaag-btn{flex:1;border:none;background:transparent;font-size:28px;cursor:pointer;border-radius:12px;padding:8px 4px;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:4px}
+.vandaag-btn span.vl{font-size:9px;font-weight:600;color:var(--muted)}
+.vandaag-btn:hover{background:var(--blue-light);transform:scale(1.1)}
+.vandaag-btn.sel{background:var(--pink-light);transform:scale(1.15)}
+.vandaag-response{font-size:13px;color:var(--navy);background:var(--blue-light);border-radius:10px;padding:.75rem 1rem;line-height:1.6;display:none;border-left:3px solid var(--pink);margin-top:.5rem}
+.vandaag-response.show{display:block}
+/* Herken ik mezelf */
+.herken-btn{display:inline-flex;align-items:center;gap:6px;margin-top:.75rem;padding:7px 16px;border-radius:20px;border:1.5px solid var(--border);background:var(--white);font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.herken-btn:hover{border-color:var(--pink);color:var(--pink);background:var(--pink-light)}
+.herken-btn.liked{background:var(--pink);color:white;border-color:var(--pink)}
+.herken-count{font-size:11px;opacity:.8}
+.rouw-uitleg{background:var(--blue-light);border-radius:14px;padding:1.5rem;border:1.5px solid var(--border);margin-bottom:12px}
+.rouw-uitleg p{font-size:13px;color:var(--muted);line-height:1.75}
+.rouw-uitleg p+p{margin-top:.75rem}
+.quiz-wrap{background:var(--white);border-radius:14px;padding:1.75rem;border:1.5px solid var(--border)}
+.quiz-q{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:1rem;line-height:1.3}
+.quiz-options{display:flex;flex-direction:column;gap:8px}
+.quiz-opt{padding:10px 14px;border-radius:10px;border:1.5px solid var(--border);font-size:14px;cursor:pointer;text-align:left;background:var(--white);font-family:'DM Sans',sans-serif;color:var(--text);transition:all .15s}
+.quiz-opt:hover{background:var(--blue-light);border-color:var(--navy)}
+.quiz-opt.correct{background:var(--green-light);border-color:var(--green);color:var(--navy)}
+.quiz-opt.wrong{background:var(--pink-light);border-color:var(--pink)}
+.quiz-feedback{margin-top:.75rem;font-size:13px;line-height:1.55;padding:.75rem 1rem;border-radius:10px;display:none}
+.quiz-feedback.show{display:block}.quiz-feedback.ok{background:var(--green-light);color:#1A3A2A}.quiz-feedback.also-ok{background:var(--blue-light);color:var(--navy)}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1rem}
+.quiz-progress{font-size:12px;color:var(--muted)}
+.herken-wrap{margin-top:.85rem}
+.herken-bevestiging{display:none;font-size:13px;color:var(--pink-dark);background:var(--pink-light);border-radius:10px;padding:.6rem 1rem;margin-top:.5rem;line-height:1.5;border-left:3px solid var(--pink);animation:fadeUp .2s ease}
+.herken-bevestiging.show{display:block}
+.faq-item{background:var(--white);border-radius:12px;margin-bottom:8px;overflow:hidden;border:1.5px solid var(--border)}
+.faq-item:hover{border-color:var(--blue-mid)}
+.faq-q{padding:.9rem 1.1rem;font-size:14px;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--blue-light)}
+.faq-q span{color:var(--pink);font-size:16px;flex-shrink:0;margin-left:8px}
+.faq-a{padding:0 1.1rem .9rem 1.1rem;font-size:13px;color:var(--muted);line-height:1.65;display:none;background:var(--white)}.faq-a.open{display:block}
+.trots-banner{background:var(--navy);border-radius:14px;padding:1.75rem;color:white;margin-bottom:1.25rem;border-left:4px solid var(--pink)}
+.trots-banner h3{font-family:'Playfair Display',serif;font-size:20px;color:#FFC0DC;margin-bottom:.6rem;line-height:1.3}
+.trots-banner p{font-size:13px;color:rgba(255,255,255,.85);line-height:1.65}
+.trots-banner p+p{margin-top:.6rem}
+.balans-wrap{background:var(--white);border-radius:14px;padding:1.5rem;border:1.5px solid var(--border);margin-bottom:1rem}
+.balans-uitleg{font-size:13px;color:var(--muted);line-height:1.65;background:var(--blue-light);border-radius:10px;padding:.85rem 1rem;margin-top:.75rem}
+.balans-uitleg p+p{margin-top:.6rem}
+.coping-intro{background:var(--blue-light);border-radius:14px;padding:1.25rem;border-left:4px solid var(--navy);margin-bottom:1rem}
+.coping-intro h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.coping-intro p{font-size:13px;color:var(--muted);line-height:1.65}
+.coping-intro p+p{margin-top:.5rem}
+.coping-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.coping-card{background:var(--white);border-radius:12px;padding:1.1rem;border:1.5px solid var(--border)}
+.coping-card .coping-top{display:flex;align-items:center;gap:8px;margin-bottom:.4rem}
+.coping-card h4{font-size:13px;font-weight:700;color:var(--navy)}
+.coping-card p{font-size:12px;color:var(--muted);line-height:1.5}
+.coping-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;margin-bottom:5px}
+.coping-ok{background:var(--green-light);color:#1B5E38}
+.coping-let-op{background:var(--pink-light);color:var(--pink-dark)}
+.hulp-hero{background:linear-gradient(150deg,var(--navy-dark) 0%,var(--navy) 100%);padding:2.5rem 1.75rem 2rem;text-align:center}
+.hulp-hero h1{font-family:'Playfair Display',serif;font-size:34px;color:white;font-weight:900;line-height:1.1;margin-bottom:.6rem}
+.hulp-hero p{font-size:14px;color:rgba(255,255,255,.85);max-width:400px;margin:0 auto 1.25rem;line-height:1.65}
+.safe-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border-radius:16px;padding:6px 14px;font-size:12px;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.2)}
+.praat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.praat-card{background:var(--white);border-radius:14px;padding:1.5rem;text-align:center;border:1.5px solid var(--border)}
+.praat-icon{font-size:36px;margin-bottom:.75rem;display:block}
+.praat-card h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);margin-bottom:6px}
+.praat-card p{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:1rem}
+.waarom-praten{background:var(--white);border-radius:14px;border:1.5px solid var(--border);overflow:hidden;margin-bottom:1rem}
+.waarom-praten-header{background:var(--navy);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:12px}
+.waarom-praten-header h3{font-family:'Playfair Display',serif;font-size:19px;color:white;font-weight:700;line-height:1.2}
+.waarom-praten-body{padding:1.5rem;background:var(--blue-light)}
+.waarom-praten-body p{font-size:13px;color:var(--text);line-height:1.75}
+.waarom-praten-body p+p{margin-top:.85rem}
+.waarom-tip{display:flex;gap:10px;align-items:flex-start;background:var(--white);border-radius:10px;padding:.85rem 1rem;margin-top:1rem;border-left:3px solid var(--pink)}
+.waarom-tip p{font-size:13px;color:var(--navy);line-height:1.6;font-weight:600}
+.praat-tool{background:var(--white);border-radius:14px;padding:1.5rem;border:1.5px solid var(--border);margin-bottom:12px}
+.person-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:.75rem}
+.chip{padding:6px 14px;border-radius:16px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--blue-light);color:var(--navy);transition:all .15s;margin:2px}
+.chip:hover,.chip.sel{background:var(--navy);color:white;border-color:var(--navy)}
+.chip-result{font-size:13px;color:var(--text);background:var(--blue-light);border-radius:10px;padding:.75rem 1rem;line-height:1.6;display:none;border-left:3px solid var(--pink)}.chip-result.show{display:block}
+.forum-post{background:var(--white);border-radius:12px;padding:1.25rem;margin-bottom:10px;border:1.5px solid var(--border);border-left:3px solid var(--pink)}
+.forum-meta{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.forum-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.forum-user{font-size:12px;font-weight:600;color:var(--navy)}.forum-time{font-size:11px;color:var(--muted)}
+.forum-post h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.forum-post p{font-size:12px;color:var(--muted);line-height:1.55}
+.tips-hero{background:linear-gradient(150deg,var(--blue-light) 0%,var(--blue-mid) 100%);padding:2.5rem 1.75rem 2rem;text-align:center}
+.tips-list{display:flex;flex-direction:column;gap:10px}
+.tip-item{background:var(--white);border-radius:12px;padding:1.25rem;display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--border)}
+.tip-num{font-family:'Playfair Display',serif;font-size:24px;color:var(--blue-mid);font-weight:900;line-height:1;flex-shrink:0;width:28px}
+.tip-item h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.tip-item p{font-size:13px;color:var(--muted);line-height:1.55}
+.first-aid{background:var(--pink-light);border-radius:14px;padding:1.5rem;border-left:4px solid var(--pink);margin-bottom:1rem}
+.first-aid h3{font-size:16px;font-weight:700;color:var(--pink-dark);margin-bottom:.75rem}
+.first-aid-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.first-aid-list li{font-size:13px;color:#5A1040;line-height:1.55;padding-left:16px;position:relative}
+.first-aid-list li::before{content:'\2192';position:absolute;left:0;color:var(--pink);font-weight:700}
+.eilanden-wrap{background:var(--white);border-radius:14px;padding:0;border:1.5px solid var(--border);overflow:hidden;margin-bottom:1rem}
+.eilanden-tekst{padding:1.25rem 1.5rem;background:var(--blue-light)}
+.eilanden-tekst p{font-size:13px;color:var(--text);line-height:1.75}
+.eilanden-tekst p+p{margin-top:.75rem}
+.eiland-legenda{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:1rem}
+.eiland-leg{border-radius:10px;padding:.85rem 1rem}
+.eiland-leg h4{font-size:13px;font-weight:700;margin-bottom:.35rem}
+.eiland-leg ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.eiland-leg ul li{font-size:12px;line-height:1.4;padding-left:14px;position:relative}
+.eiland-leg ul li::before{content:'\2022';position:absolute;left:0}
+.media-hero{background:linear-gradient(150deg,var(--navy-dark) 0%,var(--navy) 100%);padding:2.5rem 1.75rem 2rem;text-align:center}
+.media-card{background:var(--white);border-radius:12px;padding:1rem 1.25rem;margin-bottom:8px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform .15s;border:1.5px solid var(--border)}
+.media-card:hover{transform:translateX(2px);border-color:var(--pink)}
+.media-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--blue-light)}
+.media-card h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.media-card p{font-size:12px;color:var(--muted);line-height:1.4}
+.ext-link{font-size:11px;color:var(--pink);font-weight:600;margin-top:3px}
+.wereld-hero{background:linear-gradient(150deg,var(--navy-dark) 0%,var(--navy) 60%,var(--navy-mid) 100%);padding:2.5rem 1.75rem 2rem;text-align:center}
+.pi-badge{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.1);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;border:1px solid rgba(255,255,255,.2)}
+.pi-badge p{font-size:13px;color:rgba(255,255,255,.9);line-height:1.6}
+.pi-badge strong{color:white}
+.gevangenis-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+.gevangenis-card{background:var(--white);border-radius:12px;padding:1.1rem;border:1.5px solid var(--border);cursor:pointer;transition:transform .15s}
+.gevangenis-card:hover{transform:translateY(-2px);border-color:var(--navy)}
+.gevangenis-card.open{background:var(--blue-light);border-color:var(--navy)}
+.g-icon{font-size:26px;margin-bottom:5px;display:block}
+.gevangenis-card h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.gevangenis-card .g-summary{font-size:11.5px;color:var(--muted);line-height:1.45}
+.gevangenis-card .g-detail{display:none;margin-top:.6rem;font-size:12px;color:var(--muted);line-height:1.6;border-top:1px solid var(--blue-mid);padding-top:.6rem}
+.gevangenis-card.open .g-detail{display:block}
+.bezoek-check{background:var(--green-light);border-radius:14px;padding:1.5rem;border-left:4px solid #1B5E38;margin-bottom:1rem}
+.bezoek-check h3{font-size:15px;font-weight:700;color:#1B5E38;margin-bottom:.75rem}
+.bezoek-check ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.bezoek-check li{font-size:13px;color:#1B3A28;line-height:1.5;padding-left:20px;position:relative}
+.bezoek-check li::before{content:'✓';position:absolute;left:0;color:#1B5E38;font-weight:700}
+.volw-tip{display:flex;gap:10px;align-items:flex-start;background:var(--blue-light);border-radius:10px;padding:.85rem 1rem;margin:.75rem 0;border-left:3px solid var(--pink)}
+.volw-tip p{font-size:12px;color:var(--muted);line-height:1.6}
+.volw-tip p strong{color:var(--navy)}
+.netwerk-wrap{background:var(--white);border-radius:14px;padding:1.5rem;border:1.5px solid var(--border)}
+.netwerk-rings{position:relative;height:240px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.ring{position:absolute;border-radius:50%;border:1.5px dashed;display:flex;align-items:center;justify-content:center}
+.ring-1{width:72px;height:72px;background:var(--navy);border-color:var(--navy);z-index:3}
+.ring-2{width:140px;height:140px;border-color:var(--navy);z-index:2}
+.ring-3{width:220px;height:220px;border-color:var(--blue-mid);z-index:1}
+.name-chip{padding:5px 12px;border-radius:12px;font-size:12px;font-weight:600;background:var(--blue-light);color:var(--navy);cursor:pointer;border:1.5px solid var(--border);transition:all .15s;display:inline-block;margin:4px}
+.footer-bar{height:4px;background:var(--pink)}
+.footer{background:var(--navy);color:rgba(255,255,255,.7);padding:1.75rem;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:18px;color:white;margin-bottom:3px}
+.footer-brand-sub{font-size:12px}
+.footer-links{display:flex;flex-direction:column;gap:5px}
+.footer-link{font-size:12px;color:rgba(255,255,255,.65);cursor:pointer}.footer-link:hover{color:white}
+.footer-bottom{background:var(--navy-dark);padding:.6rem 1.75rem;font-size:11px;color:rgba(255,255,255,.4);display:flex;justify-content:space-between}
+
+/* ===== HAMBURGER MENU ===== */
+.nav-hamburger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:var(--sand);border:1.5px solid var(--border);cursor:pointer;padding:8px;border-radius:10px;flex-shrink:0;transition:background .15s}
+.nav-hamburger:hover{background:var(--blue-light)}.nav-hamburger span{display:block;height:2.5px;background:var(--navy);border-radius:2px;transition:all .25s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.nav-drawer{display:none;position:fixed;top:60px;left:0;right:0;background:var(--white);border-bottom:3px solid var(--pink);z-index:19;padding:.5rem .75rem .75rem;box-shadow:0 8px 32px rgba(27,43,107,.18)}
+.nav-drawer.open{display:block;animation:fadeUp .18s ease}
+.nav-drawer .nav-btn{display:flex;align-items:center;gap:.6rem;width:100%;text-align:left;padding:.7rem .9rem;border-radius:10px;font-size:14px;margin-bottom:3px;color:var(--navy);font-weight:600}
+.nav-drawer .nav-btn:hover{background:var(--blue-light);color:var(--navy)}
+.nav-drawer .nav-btn.active{background:var(--pink-light);color:var(--pink)}
+.nav-drawer .nav-cta{display:block;width:100%;text-align:center;padding:.9rem;margin-top:.5rem;border-radius:12px;font-size:14px;font-weight:700}
+.nav-drawer-divider{height:1px;background:var(--border);margin:.4rem 0}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 600px) {
+  /* Nav */
+  .nav-links, .nav > .nav-cta{display:none}
+  .nav-title{font-size:15px}
+
+  /* Cover: stack vertically */
+  .cover{padding:2rem 1.25rem 0}
+  .cover-inner{flex-direction:column;align-items:stretch;gap:1rem}
+  .cover h1{font-size:34px}
+  .cover-illustration{width:100%;max-width:220px;margin:0 auto;align-self:center}
+  .cover-btns{flex-direction:column;gap:8px}
+  .cover-btns button{width:100%;padding:12px}
+
+  /* Sections */
+  .section{padding:1.5rem 1.1rem}
+  .divider{margin:0 1.1rem}
+  .section-title{font-size:22px}
+
+  /* Feature grid: keep 2 cols, but shrink body text */
+  .feature-body h3{font-size:13px}
+  .feature-body p{font-size:11px}
+  .feature-top{height:80px;font-size:34px}
+
+  /* Gevoel grid: 2 columns instead of 3 */
+  .gevoel-grid{grid-template-columns:1fr 1fr}
+  .gevoel-card{padding:.85rem .65rem}
+  .gevoel-emoji{font-size:24px}
+  .gevoel-card h3{font-size:11.5px}
+  .gevoel-card p{font-size:10px}
+
+  /* Vandaag emoji row */
+  .vandaag-btn{font-size:24px;padding:6px 2px}
+  .vandaag-btn span.vl{font-size:8.5px}
+  .vandaag-wrap{padding:1rem 1rem}
+
+  /* Story items */
+  .story-item{grid-template-columns:36px 1fr;gap:.75rem;padding:1.1rem}
+  .story-num{font-size:28px}
+
+  /* Gevangenis grid: 1 column on very small, 2 on medium */
+  .gevangenis-grid{grid-template-columns:1fr 1fr}
+
+  /* Coping grid: 1 column */
+  .coping-grid{grid-template-columns:1fr}
+
+  /* Chips */
+  .person-chips{gap:6px}
+  .chip{font-size:12px;padding:6px 12px}
+
+  /* Footer */
+  .footer{grid-template-columns:1fr;gap:.75rem;padding:1.25rem 1.1rem}
+  .footer-bottom{padding:.6rem 1.1rem}
+
+  /* Pull quote */
+  .pull-quote blockquote{font-size:15px}
+
+  /* Tips */
+  .tip-item{padding:1rem}
+
+  /* Hulp hero */
+  .hulp-hero{padding:2rem 1.25rem 1.5rem}
+  .hulp-hero h1{font-size:28px}
+
+  /* Media cards */
+  .media-card{padding:.85rem 1rem}
+  .media-icon{width:38px;height:38px;font-size:17px}
+
+  /* Eilanden legenda */
+  .eiland-legenda{grid-template-columns:1fr}
+
+  /* Balans grid */
+  div[style*="grid-template-columns:1fr auto 1fr"]{grid-template-columns:1fr !important}
+
+  /* Netwerk rings: scale down */
+  .netwerk-rings{height:200px;transform:scale(.85);transform-origin:center top}
+
+  /* Praat grid: force 1 col */
+  .praat-grid{grid-template-columns:1fr}
+
+  /* Story hero, gevoel hero etc */
+  .story-hero{padding:2rem 1.25rem 1.5rem}
+  .story-hero h1{font-size:28px}
+  .gevoel-hero{padding:2rem 1.25rem 1.5rem}
+  .hulp-hero h1,.media-hero h1,.wereld-hero h1,.tips-hero h1,.gevoel-hero h1{font-size:28px}
+  .cover-eyebrow{font-size:9px}
+  .niet-alleen-num{font-size:28px}
+}
+
+@media (max-width: 380px) {
+  .cover h1{font-size:28px}
+  .gevoel-grid{grid-template-columns:1fr 1fr}
+  .vandaag-emoji-row{gap:2px}
+  .vandaag-btn{font-size:22px}
+}
+
+/* ===== BOTTOM TAB BAR ===== */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--white);border-top:1.5px solid var(--border);display:flex;align-items:stretch;padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -4px 16px rgba(27,43,107,.1)}
+.bottom-nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px 6px;cursor:pointer;border:none;background:transparent;font-family:'DM Sans',sans-serif;color:var(--muted);transition:color .15s;-webkit-tap-highlight-color:transparent;gap:3px;position:relative}
+.bottom-nav-item.active{color:var(--pink)}
+.bottom-nav-item .bn-icon{font-size:20px;line-height:1;transition:transform .15s}
+.bottom-nav-item .bn-label{font-size:8.5px;font-weight:600;letter-spacing:.2px;line-height:1}
+.bottom-nav-item.active .bn-icon{transform:translateY(-2px)}
+.bottom-nav-item::after{content:'';position:absolute;top:0;left:20%;right:20%;height:2.5px;background:var(--pink);border-radius:0 0 3px 3px;transform:scaleX(0);transition:transform .2s}
+.bottom-nav-item.active::after{transform:scaleX(1)}
+/* Hulp button in bottom nav — special */
+.bn-hulp{background:var(--pink);border-radius:14px;padding:2px 0;margin:6px 4px 4px;flex:1.1;color:white !important}
+.bn-hulp .bn-icon{font-size:20px}
+.bn-hulp::after{display:none}
+/* Add padding to site so content isn't hidden behind bottom nav */
+.site{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+
+/* ===== PRESS FEEDBACK ===== */
+.btn-primary,.btn-dark,.btn-ghost,.nav-cta,.feature-card,.gevoel-card,.story-item,.media-card,.gevangenis-card,.herken-btn,.bottom-nav-item,.vandaag-btn,.chip,.quiz-opt,.faq-q,.tip-item,.praat-card{
+  -webkit-tap-highlight-color:transparent;
+}
+.btn-primary:active,.btn-dark:active,.btn-ghost:active,.nav-cta:active{transform:scale(.96)}
+.feature-card:active,.media-card:active,.praat-card:active{transform:scale(.97) !important}
+.herken-btn:active,.chip:active,.quiz-opt:active{transform:scale(.96)}
+.vandaag-btn:active{transform:scale(1.08) !important}
+.bottom-nav-item:active .bn-icon{transform:scale(.88) translateY(-2px)}
+
+/* ===== SAFE AREA NAV ===== */
+.nav{padding-left:max(1.25rem, env(safe-area-inset-left));padding-right:max(1.25rem, env(safe-area-inset-right))}
+
+/* ===== STICKY HULP CTA (homepage) ===== */
+.sticky-hulp{display:none}
+@media(max-width:600px){
+  .sticky-hulp{display:block;position:fixed;bottom:calc(68px + env(safe-area-inset-bottom));right:1rem;z-index:25;background:var(--pink);color:white;border:none;border-radius:24px;padding:12px 18px;font-size:13px;font-weight:700;font-family:'DM Sans',sans-serif;box-shadow:0 4px 18px rgba(217,20,114,.35);cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent}
+  .sticky-hulp:active{transform:scale(.95)}
+  .sticky-hulp.hidden{opacity:0;pointer-events:none;transform:translateY(12px)}
+  /* Ensure bottom-nav shows only on mobile */
+  .bottom-nav{display:flex}
+}
+@media(min-width:601px){
+  .bottom-nav{display:none}
+  .site{padding-bottom:0}
+}
+</style>
+</head>
+<body>
+<div class="site">
+<nav class="nav">
+  <div class="nav-brand" onclick="showPage('home');closeDrawer()">
+    <div class="nav-label">Exodus Nederland</div>
+    <div class="nav-title">Jij telt mee</div>
+  </div>
+  <div class="nav-links">
+    <button class="nav-btn active" onclick="showPage('home')">Home</button>
+    <button class="nav-btn" onclick="showPage('verhalen')">Verhalen</button>
+    <button class="nav-btn" onclick="showPage('gevoelens')">Gevoelens</button>
+    <button class="nav-btn" onclick="showPage('hulp')">Hulp &amp; praten</button>
+    <button class="nav-btn" onclick="showPage('tips')">Tips</button>
+    <button class="nav-btn" onclick="showPage('wereld')">De wereld van detentie</button>
+    <button class="nav-btn" onclick="showPage('media')">Kijken</button>
+  </div>
+  <button class="nav-cta" onclick="showPage('hulp')">Hulp zoeken &rarr;</button>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleDrawer()" aria-label="Menu openenen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <button class="nav-btn" id="dnav-home" onclick="showPage('home');closeDrawer()">&#127968; Home</button>
+  <button class="nav-btn" id="dnav-verhalen" onclick="showPage('verhalen');closeDrawer()">&#128214; Verhalen</button>
+  <button class="nav-btn" id="dnav-gevoelens" onclick="showPage('gevoelens');closeDrawer()">&#127754; Gevoelens</button>
+  <button class="nav-btn" id="dnav-hulp" onclick="showPage('hulp');closeDrawer()">&#128172; Hulp &amp; praten</button>
+  <button class="nav-btn" id="dnav-tips" onclick="showPage('tips');closeDrawer()">&#9889; Tips</button>
+  <button class="nav-btn" id="dnav-wereld" onclick="showPage('wereld');closeDrawer()">&#127968; Wereld van detentie</button>
+  <button class="nav-btn" id="dnav-media" onclick="showPage('media');closeDrawer()">&#127911; Kijken &amp; luisteren</button>
+  <div class="nav-drawer-divider"></div>
+  <button class="nav-cta" onclick="showPage('hulp');closeDrawer()">&#128172; Hulp zoeken &rarr;</button>
+</div>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="cover-text">
+        <div class="cover-eyebrow">Voor kinderen van gedetineerden &middot; Veilig &middot; Anoniem</div>
+        <h1>Jij bent<br><em>niet alleen</em></h1>
+        <p class="cover-intro">Als jouw ouder in de gevangenis zit, is dat heel moeilijk. Hier vind je verhalen van anderen, tips, en mensen die begrijpen hoe jij je voelt.</p>
+
+      </div>
+      <div class="cover-illustration">
+        <svg viewBox="0 0 180 210" xmlns="http://www.w3.org/2000/svg" aria-label="Kind staat niet alleen voor de gevangenis">
+
+          <!-- ===== GEVANGENIS ACHTERGROND ===== -->
+
+          <!-- Hoofdgebouw -->
+          <rect x="30" y="55" width="120" height="90" rx="3" fill="#C8D8E8"/>
+          <rect x="30" y="55" width="120" height="90" rx="3" fill="#1B2B6B" opacity="0.08"/>
+
+          <!-- Dak / bovenverdieping -->
+          <rect x="52" y="30" width="76" height="30" rx="3" fill="#B5CFEA"/>
+
+          <!-- Klokje bovenop -->
+          <rect x="74" y="14" width="32" height="22" rx="3" fill="#B5CFEA"/>
+          <circle cx="90" cy="24" r="9" fill="white" stroke="#1B2B6B" stroke-width="1.5"/>
+          <line x1="90" y1="24" x2="90" y2="18" stroke="#1B2B6B" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="90" y1="24" x2="95" y2="24" stroke="#1B2B6B" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Ramen bovenverdieping -->
+          <rect x="62" y="37" width="14" height="12" rx="2" fill="white" opacity="0.8"/>
+          <rect x="83" y="37" width="14" height="12" rx="2" fill="white" opacity="0.8"/>
+          <rect x="104" y="37" width="14" height="12" rx="2" fill="white" opacity="0.8"/>
+
+          <!-- Muren links en rechts (lager, donkerder) -->
+          <rect x="8" y="88" width="38" height="57" rx="2" fill="#8FA8C0"/>
+          <rect x="134" y="88" width="38" height="57" rx="2" fill="#8FA8C0"/>
+
+          <!-- Traliepoorten links -->
+          <rect x="12" y="92" width="30" height="48" rx="2" fill="#6A8BA8"/>
+          <line x1="17" y1="92" x2="17" y2="140" stroke="#1B2B6B" stroke-width="2.5" opacity="0.6"/>
+          <line x1="23" y1="92" x2="23" y2="140" stroke="#1B2B6B" stroke-width="2.5" opacity="0.6"/>
+          <line x1="29" y1="92" x2="29" y2="140" stroke="#1B2B6B" stroke-width="2.5" opacity="0.6"/>
+          <line x1="35" y1="92" x2="35" y2="140" stroke="#1B2B6B" stroke-width="2.5" opacity="0.6"/>
+          <line x1="12" y1="110" x2="42" y2="110" stroke="#1B2B6B" stroke-width="1.5" opacity="0.4"/>
+
+          <!-- Traliepoorten rechts -->
+          <rect x="138" y="92" width="30" height="48" rx="2" fill="#6A8BA8"/>
+          <line x1="143" y1="92" x2="143" y2="140" stroke="#1B2B6B" stroke-width="2.5" opacity="0.6"/>
+          <line x1="149" y1="92" x2="149" y2="140" stroke="#1B2B6B" stroke-width="2.5" opacity="0.6"/>
+          <line x1="155" y1="92" x2="155" y2="140" stroke="#1B2B6B" stroke-width="2.5" opacity="0.6"/>
+          <line x1="161" y1="92" x2="161" y2="140" stroke="#1B2B6B" stroke-width="2.5" opacity="0.6"/>
+          <line x1="138" y1="110" x2="168" y2="110" stroke="#1B2B6B" stroke-width="1.5" opacity="0.4"/>
+
+          <!-- Ramen hoofdgebouw -->
+          <rect x="42" y="65" width="16" height="13" rx="2" fill="white" opacity="0.75"/>
+          <rect x="67" y="65" width="16" height="13" rx="2" fill="white" opacity="0.75"/>
+          <rect x="97" y="65" width="16" height="13" rx="2" fill="white" opacity="0.75"/>
+          <rect x="122" y="65" width="16" height="13" rx="2" fill="white" opacity="0.75"/>
+
+          <!-- Struikjes -->
+          <ellipse cx="44" cy="90" rx="12" ry="9" fill="#1B5E38" opacity="0.7"/>
+          <ellipse cx="136" cy="90" rx="12" ry="9" fill="#1B5E38" opacity="0.7"/>
+
+          <!-- Grond -->
+          <rect x="0" y="143" width="180" height="67" fill="#1B2B6B" opacity="0.15" rx="2"/>
+
+          <!-- ===== POPPETJES (18px omhoog) ===== -->
+          <g transform="translate(0,-18)">
+
+          <!-- LICHAMEN -->
+
+          <!-- P1 lichaam — lichtblauw -->
+          <circle cx="40" cy="128" r="13" fill="#D2E5F4" stroke="#5A8FAF" stroke-width="1.5"/>
+          <path d="M28,140 Q27,168 28,178 Q40,182 52,178 Q53,168 52,140 Z" fill="#D2E5F4" stroke="#5A8FAF" stroke-width="1.5" stroke-linejoin="round"/>
+
+          <!-- P2 lichaam — marineblauw -->
+          <circle cx="70" cy="124" r="14" fill="#1B2B6B" stroke="#0D1A44" stroke-width="1.5"/>
+          <path d="M57,137 Q56,167 57,178 Q70,182 83,178 Q84,167 83,137 Z" fill="#1B2B6B" stroke="#0D1A44" stroke-width="1.5" stroke-linejoin="round"/>
+
+          <!-- P3 lichaam — roze -->
+          <circle cx="100" cy="124" r="14" fill="#D91472" stroke="#A80E59" stroke-width="1.5"/>
+          <path d="M87,137 Q86,167 87,178 Q100,182 113,178 Q114,167 113,137 Z" fill="#D91472" stroke="#A80E59" stroke-width="1.5" stroke-linejoin="round"/>
+
+          <!-- P4 lichaam — wit -->
+          <circle cx="130" cy="128" r="13" fill="white" stroke="#D91472" stroke-width="2"/>
+          <path d="M118,140 Q117,168 118,178 Q130,182 142,178 Q143,168 142,140 Z" fill="white" stroke="#D91472" stroke-width="2" stroke-linejoin="round"/>
+
+          <!-- ARM LINKS (P1) -->
+          <path d="M28,142 Q22,155 23,165" stroke="#D2E5F4" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M28,142 Q22,155 23,165" stroke="#5A8FAF" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+          <!-- ARM RECHTS (P4) -->
+          <path d="M142,142 Q148,155 147,165" stroke="white" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M142,142 Q148,155 147,165" stroke="#D91472" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+          <!-- BENEN P1 -->
+          <path d="M34,178 Q33,192 34,200" stroke="#D2E5F4" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <path d="M34,178 Q33,192 34,200" stroke="#5A8FAF" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M46,178 Q47,192 46,200" stroke="#D2E5F4" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <path d="M46,178 Q47,192 46,200" stroke="#5A8FAF" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- BENEN P2 -->
+          <path d="M63,178 Q62,193 63,202" stroke="#1B2B6B" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <path d="M63,178 Q62,193 63,202" stroke="#0D1A44" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M77,178 Q78,193 77,202" stroke="#1B2B6B" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <path d="M77,178 Q78,193 77,202" stroke="#0D1A44" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- BENEN P3 -->
+          <path d="M93,178 Q92,193 93,202" stroke="#D91472" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <path d="M93,178 Q92,193 93,202" stroke="#A80E59" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M107,178 Q108,193 107,202" stroke="#D91472" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <path d="M107,178 Q108,193 107,202" stroke="#A80E59" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- BENEN P4 -->
+          <path d="M124,178 Q123,192 124,200" stroke="white" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <path d="M124,178 Q123,192 124,200" stroke="#D91472" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M136,178 Q137,192 136,200" stroke="white" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <path d="M136,178 Q137,192 136,200" stroke="#D91472" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+          </g>
+
+        </svg>
+      </div>
+    </div>
+    <div class="wave"></div>
+  </div>
+  <div class="section">
+    <div class="niet-alleen">
+      <div class="niet-alleen-num">25.000 kinderen</div>
+      <h3>Jij bent niet de enige. Echt niet.</h3>
+      <p>In Nederland zijn er elk jaar zo&rsquo;n 25.000 kinderen met een ouder in de gevangenis. Dat zijn 25.000 kinderen die begrijpen hoe jij je voelt &mdash; ook al ken je ze niet. Je staat er niet alleen voor.</p>
+    </div>
+    <span class="section-label">Op deze website</span>
+    <div class="section-title">Wat vind je hier?</div>
+    <p class="section-sub">Klik op een onderwerp om direct naar die pagina te gaan.</p>
+    <div class="feature-grid">
+      <div class="feature-card" onclick="showPage('verhalen')"><div class="feature-top" style="background:var(--blue-light)">&#128214;</div><div class="feature-body"><span class="tag">Verhalen</span><h3>Echte verhalen van anderen</h3><p>Je bent niet de enige. Lees hoe andere kinderen dit meemaken.</p></div></div>
+      <div class="feature-card" onclick="showPage('gevoelens')"><div class="feature-top" style="background:var(--pink-light)">&#127754;</div><div class="feature-body"><span class="tag">Gevoelens</span><h3>Alles wat je kunt voelen</h3><p>Van boosheid tot opluchting &mdash; het mag allemaal.</p></div></div>
+      <div class="feature-card" onclick="showPage('hulp')"><div class="feature-top" style="background:var(--pink-light)">&#128172;</div><div class="feature-body"><span class="tag">Hulp &amp; praten</span><h3>Praat erover, wanneer jij wil</h3><p>Forum, chat, tips voor moeilijke gesprekken.</p></div></div>
+      <div class="feature-card" onclick="showPage('tips')"><div class="feature-top" style="background:var(--blue-light)">&#9889;</div><div class="feature-body"><span class="tag">Tips</span><h3>Handige tips voor elke situatie</h3><p>Afleiding zoeken, contact met je ouder, en meer.</p></div></div>
+      <div class="feature-card" onclick="showPage('wereld')"><div class="feature-top" style="background:var(--blue-light)">&#127968;</div><div class="feature-body"><span class="tag">De wereld van detentie</span><h3>Hoe ziet de gevangenis eruit?</h3><p>Eerste hulp, bezoek, bellen en hoe een dag eruit ziet.</p></div></div>
+      <div class="feature-card" onclick="showPage('media')"><div class="feature-top" style="background:var(--pink-light)">&#127911;</div><div class="feature-body"><span class="tag">Kijken &amp; luisteren</span><h3>Podcast, video&rsquo;s en series</h3><p>Over kinderen zoals jij &mdash; herken jezelf.</p></div></div>
+    </div>
+  </div>
+  <div class="section" style="padding-top:0">
+    <span class="section-label">Even voor jou</span>
+    <div class="section-title" style="margin-bottom:.5rem">Hoe voel jij je vandaag?</div>
+    <p class="section-sub" style="margin-bottom:1rem">Kies de emoji die het beste bij je past. Er is geen goed of fout antwoord.</p>
+    <div class="vandaag-wrap">
+      <div class="vandaag-emoji-row">
+        <button class="vandaag-btn" onclick="kiesGevoel(this,'blij')" aria-label="Blij">😊<span class="vl">Blij</span></button>
+        <button class="vandaag-btn" onclick="kiesGevoel(this,'rustig')" aria-label="Rustig">😌<span class="vl">Rustig</span></button>
+        <button class="vandaag-btn" onclick="kiesGevoel(this,'verdrietig')" aria-label="Verdrietig">😢<span class="vl">Verdrietig</span></button>
+        <button class="vandaag-btn" onclick="kiesGevoel(this,'boos')" aria-label="Boos">😠<span class="vl">Boos</span></button>
+        <button class="vandaag-btn" onclick="kiesGevoel(this,'bang')" aria-label="Bang">😟<span class="vl">Bang</span></button>
+        <button class="vandaag-btn" onclick="kiesGevoel(this,'moe')" aria-label="Moe">😴<span class="vl">Moe</span></button>
+      </div>
+      <div class="vandaag-response" id="vandaag-response"></div>
+    </div>
+  </div>
+  <div class="section" style="padding-top:0">
+    <div class="pull-quote">
+      <blockquote>&ldquo;Gewoon even horen: &lsquo;Wow, hoe heb je dat overleefd. Wat knap dat je dat gedaan hebt en wat sterk!&rsquo; Ik zei het altijd tegen mezelf, maar het is ook wel eens fijn als iemand anders dat zegt.&rdquo;</blockquote>
+      <cite>&mdash; Jongvolwassene die als kind een ouder in detentie had</cite>
+    </div>
+    <p style="font-size:13px;color:var(--muted);text-align:center;max-width:420px;margin:0 auto;line-height:1.65">Deze website is er zodat jij w&eacute;l gezien wordt. Jouw verhaal mag er zijn &mdash; hoe ingewikkeld ook.</p>
+  </div>
+  <div class="footer-bar"></div>
+  <div class="footer">
+    <div><div class="footer-brand-name">Jij telt mee</div><div class="footer-brand-sub">Een initiatief van Stichting Exodus Nederland &middot; Expertisecentrum K I N D</div></div>
+    <div class="footer-links">
+      <span class="footer-link" onclick="showPage('verhalen')">Verhalen</span>
+      <span class="footer-link" onclick="showPage('gevoelens')">Gevoelens</span>
+      <span class="footer-link" onclick="showPage('hulp')">Hulp &amp; praten</span>
+      <span class="footer-link" onclick="showPage('tips')">Tips</span>
+      <span class="footer-link" onclick="showPage('wereld')">De wereld van detentie</span>
+      <span class="footer-link" onclick="showPage('media')">Kijken &amp; luisteren</span>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2026 Miriam de Ruiter</span><span>Prototype</span></div>
+</div>
+
+<!-- VERHALEN -->
+<div class="page" id="page-verhalen">
+  <div class="story-hero">
+    <span class="section-label">Echte verhalen</span>
+    <h1>Verhalen van<br>kinderen <em>zoals jij</em></h1>
+    <p style="font-size:14px;color:#2A3A5A;max-width:460px;line-height:1.7;margin-top:.5rem;margin-left:auto;margin-right:auto">Elk verhaal is anders, uniek net als jij. Maar in de verhalen van anderen zul je jezelf toch kunnen herkennen. Deze verhalen zijn er om je te laten zien dat je niet de enige bent.</p>
+  </div>
+  <div class="section">
+    <div class="story-item">
+      <div class="story-num">01</div>
+      <div><span class="tag">Geheimhouding</span>
+        <h3>&ldquo;Niemand op school wist het. Ik deed alsof er niets aan de hand was.&rdquo;</h3>
+        <p>Emma (14) hield de detentie van haar vader twee jaar geheim. Uit angst om anders behandeld te worden. Totdat ze ontdekte dat ze echt niet de enige was&hellip;</p>
+        <span class="handwritten">&#8594; Jij hoeft het niet te vertellen. Maar je mag het ook wel.</span>
+        <div class="herken-wrap">
+          <button class="herken-btn" onclick="herken(this,'s1')" id="herken-s1">❤️ Ik herken mezelf hierin <span class="herken-count" id="herken-count-s1">· 47 kinderen ook</span></button>
+          <div class="herken-bevestiging" id="herken-bevestiging-s1">Jij bent niet de enige. 47 andere kinderen herkennen dit ook. ❤️</div>
+        </div>
+      </div>
+    </div>
+    <div class="story-item">
+      <div class="story-num">02</div>
+      <div><span class="tag">Loyaliteit</span>
+        <h3>&ldquo;Ik miste haar zo erg. En toch was ik ook gewoon boos op haar.&rdquo;</h3>
+        <p>Jayden (12) voelde dit beide tegelijk. Van zijn moeder houden &eacute;n boos op haar zijn. Hij legt uit hoe dat voelde en dat beide gevoelens er mochten zijn.</p>
+        <span class="handwritten">&#8594; Tegenstrijdige gevoelens zijn heel normaal.</span>
+        <div class="herken-wrap">
+          <button class="herken-btn" onclick="herken(this,'s2')" id="herken-s2">❤️ Ik herken mezelf hierin <span class="herken-count" id="herken-count-s2">· 63 kinderen ook</span></button>
+          <div class="herken-bevestiging" id="herken-bevestiging-s2">Jij bent niet de enige. 63 andere kinderen herkennen dit ook. ❤️</div>
+        </div>
+      </div>
+    </div>
+    <div class="story-item">
+      <div class="story-num">03</div>
+      <div><span class="tag">Na detentie</span>
+        <h3>&ldquo;Toen mijn moeder thuiskwam, wist ik eigenlijk niet meer hoe ik met haar om moest gaan.&rdquo;</h3>
+        <p>Fatima (16) dacht dat alles goed zou komen zodra haar moeder vrij was. Maar de verhoudingen waren veranderd. Ze was gegroeid, terwijl het leven van haar moeder op pauze had gestaan. Ze vertelt hoe ze daarmee omgaat.</p>
+        <span class="handwritten">&#8594; Het hoeft niet meteen goed te gaan.</span>
+        <div class="herken-wrap">
+          <button class="herken-btn" onclick="herken(this,'s3')" id="herken-s3">❤️ Ik herken mezelf hierin <span class="herken-count" id="herken-count-s3">· 38 kinderen ook</span></button>
+          <div class="herken-bevestiging" id="herken-bevestiging-s3">Jij bent niet de enige. 38 andere kinderen herkennen dit ook. ❤️</div>
+        </div>
+      </div>
+    </div>
+    <div class="story-item">
+      <div class="story-num">04</div>
+      <div><span class="tag">Kracht</span>
+        <h3>&ldquo;Ik heb ook heel veel kracht gekregen van deze periode in mijn leven.&rdquo;</h3>
+        <p>Rania (19) wil haar verhaal delen voor de kinderen die ook iets van hoop nodig hebben. Niet iedereen voelt hoop, dat hoeft ook niet. Maar het kan er ook zijn in deze tijd.</p>
+        <span class="handwritten">&#8594; Jij bent sterker dan je denkt.</span>
+        <div class="herken-wrap">
+          <button class="herken-btn" onclick="herken(this,'s4')" id="herken-s4">❤️ Ik herken mezelf hierin <span class="herken-count" id="herken-count-s4">· 29 kinderen ook</span></button>
+          <div class="herken-bevestiging" id="herken-bevestiging-s4">Jij bent niet de enige. 29 andere kinderen herkennen dit ook. ❤️</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--navy);border-radius:14px;padding:1.75rem;margin-top:.5rem;border-left:4px solid var(--pink)">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;color:white;margin-bottom:.75rem;line-height:1.2">Heb jij ook een verhaal?</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.75;margin-bottom:.75rem">Jouw verhaal mag er zijn &mdash; net als jij. We luisteren graag. Je mag je verhaal altijd met ons delen. Jij bepaalt zelf of het ook op de website mag komen te staan. Het is jouw verhaal &mdash; dus jij bepaalt.</p>
+      <button class="btn-primary" onclick="showPage('hulp')">Deel jouw verhaal</button>
+    </div>
+  </div>
+  <div class="footer-bar"></div>
+  <div class="footer"><div><div class="footer-brand-name">Jij telt mee</div><div class="footer-brand-sub">Exodus Nederland</div></div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('gevoelens')">Gevoelens</span><span class="footer-link" onclick="showPage('hulp')">Hulp zoeken</span></div></div>
+  <div class="footer-bottom"><span>&copy; 2026 Miriam de Ruiter</span><span>Prototype</span></div>
+</div>
+
+<!-- GEVOELENS -->
+<div class="page" id="page-gevoelens">
+  <div class="gevoel-hero">
+    <span class="section-label">Jouw gevoelens</span>
+    <h1 style="font-family:'Playfair Display',serif;font-size:34px;color:var(--navy);font-weight:900;line-height:1.1;margin-bottom:.6rem">Wat jij voelt,<br>mag er zijn</h1>
+    <p style="font-size:14px;color:#2A3A5A;max-width:420px;line-height:1.65;margin-top:.5rem;margin-left:auto;margin-right:auto">Er zijn geen goede of foute gevoelens. Lees over rouw, je rugzakje en doe ook de quiz!</p>
+  </div>
+  <div class="section">
+    <span class="section-label">Herken jij dit?</span>
+    <div class="section-title" style="margin-bottom:.75rem">Wat kun je allemaal voelen?</div>
+    <div class="gevoel-grid">
+      <div class="gevoel-card gc-blue"><span class="gevoel-emoji">&#128546;</span><h3>Verdriet</h3><p>Je mist je ouder. Het leven dat je had is veranderd. Dat gemis is echt en het mag er zijn.</p></div>
+      <div class="gevoel-card gc-orange"><span class="gevoel-emoji">&#128544;</span><h3>Boosheid</h3><p>Boos zijn op je ouder of de situatie hoort er ook bij. Je hoeft het niet weg te stoppen.</p></div>
+      <div class="gevoel-card gc-yellow"><span class="gevoel-emoji">&#128560;</span><h3>Onzekerheid</h3><p>Niet weten wat er gaat gebeuren is heel zwaar. Je bent niet de enige die dit voelt.</p></div>
+      <div class="gevoel-card gc-pink"><span class="gevoel-emoji">&#128563;</span><h3>Schaamte</h3><p>Wat jouw ouder heeft gedaan, zegt niets over wie j&iacute;j bent.</p></div>
+      <div class="gevoel-card gc-green"><span class="gevoel-emoji">&#128558;</span><h3>Opluchting</h3><p>Als er thuis veel spanning was, mag opluchting er ook zijn. Dat zegt niets slechts over jou.</p></div>
+      <div class="gevoel-card gc-purple"><span class="gevoel-emoji">&#129402;</span><h3>Eenzaamheid</h3><p>Het kan voelen alsof je het alleen draagt. Maar er zijn 25.000 kinderen die dit gevoel ook kennen.</p></div>
+      <div class="gevoel-card gc-yellow"><span class="gevoel-emoji">&#128566;</span><h3>Ontkenning</h3><p>Soms is het makkelijker om te doen alsof er niets is. Dat mag even &mdash; maar gevoelens verdienen ook een plek.</p></div>
+      <div class="gevoel-card gc-orange"><span class="gevoel-emoji">&#128556;</span><h3>Schuld</h3><p>Het is niet jouw schuld. Wat een volwassene doet, is hun verantwoordelijkheid.</p></div>
+      <div class="gevoel-card gc-pink"><span class="gevoel-emoji">&#10084;</span><h3>Liefde</h3><p>Van je ouder houden, ook nadat ze iets hebben gedaan wat niet mag, dat mag gewoon bestaan. Ze blijven jouw ouder.</p></div>
+      <div class="gevoel-card gc-blue"><span class="gevoel-emoji">&#128170;</span><h3>Trots</h3><p>Jij doet dit elke dag &mdash; opstaan, naar school, doorgaan. Hier mag je trots op zijn.</p></div>
+      <div class="gevoel-card gc-green"><span class="gevoel-emoji">&#127807;</span><h3>Hoop</h3><p>Er komen ook momenten van rust en kracht. Soms voel je hier al een glimp van.</p></div>
+      <div class="gevoel-card gc-purple"><span class="gevoel-emoji">&#127775;</span><h3>Iets anders</h3><p>Voel jij iets wat hier niet bij staat? Ook dat kan en mag er zijn. Het is jouw ervaring.</p></div>
+    </div>
+    <div style="background:var(--blue-light);border-radius:12px;padding:1rem 1.25rem;border:1.5px solid var(--border);border-left:3px solid var(--pink);margin-top:.85rem">
+      <p style="font-size:13px;color:var(--muted);line-height:1.65">Al deze gevoelens kunnen tegelijk bestaan &mdash; dat is heel normaal. <strong style="color:var(--navy)">Voel jij iets wat hier niet bij staat?</strong> Ook dat kan en mag er zijn. Het is jouw ervaring en daar kan niemand wat van vinden.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Wat jij meemaakt</span>
+    <div class="section-title">Levend verlies</div>
+    <p class="section-sub">Als je ouder in de gevangenis zit, verlies je iets. Hier kun je om rouwen &mdash; dat het mag er zijn.</p>
+    <div class="rouw-uitleg">
+      <p>Jij gaat door een rouwproces heen, omdat het leven nu en de relatie er anders uit gaan zien en nooit meer precies hetzelfde zullen worden. Dat is niet niks. Wat het extra lastig maakt, is dat je soms niet weet hoelang het gaat duren.</p>
+      <p>Ook is het vaak anders wanneer je ouder weer thuiskomt &mdash; jij maakt veel veranderingen door en hun leven heeft op pauze gestaan. Dat kan het lastig maken om elkaar weer te &ldquo;vinden&rdquo;.</p>
+      <p>Tijdens de detentieperiode is het ook lastig. Je ouder is niet meer elke dag bij je in de buurt, je ziet elkaar niet meer zo veel als eerst. Dat kan heel lastig zijn.</p>
+      <p>Ook als je er zelf voor hebt gekozen om geen contact meer te hebben &mdash; om wat voor reden dan ook &mdash; maakt dat het niet makkelijker. Het is belangrijk om hierbij stil te staan en aandacht voor te vragen.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Het eiland van verlies en herstel</span>
+    <div class="section-title">Hoe werkt verdriet verwerken?</div>
+    <div class="eilanden-wrap">
+      <div style="width:100%">
+        <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;border-radius:14px;overflow:hidden">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#B8E0F7"/>
+              <stop offset="100%" stop-color="#7EC8E3"/>
+            </linearGradient>
+            <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3A8FBF"/>
+              <stop offset="100%" stop-color="#1E6A9A"/>
+            </linearGradient>
+            <linearGradient id="isle-loss" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#C4A882"/>
+              <stop offset="100%" stop-color="#8B7355"/>
+            </linearGradient>
+            <linearGradient id="isle-heal" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5DBE7A"/>
+              <stop offset="100%" stop-color="#2D7A4F"/>
+            </linearGradient>
+            <radialGradient id="sun-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FFE680"/>
+              <stop offset="100%" stop-color="#F5C26A" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Sky -->
+          <rect width="420" height="220" fill="url(#sky)"/>
+
+          <!-- Sun glow -->
+          <circle cx="376" cy="38" r="30" fill="url(#sun-glow)" opacity=".6"/>
+          <!-- Sun -->
+          <circle cx="376" cy="38" r="16" fill="#F9D84A"/>
+          <!-- Sun rays -->
+          <g stroke="#F9D84A" stroke-width="2" opacity=".7">
+            <line x1="376" y1="16" x2="376" y2="10"/>
+            <line x1="376" y1="60" x2="376" y2="66"/>
+            <line x1="354" y1="38" x2="348" y2="38"/>
+            <line x1="398" y1="38" x2="404" y2="38"/>
+            <line x1="360" y1="22" x2="356" y2="18"/>
+            <line x1="392" y1="54" x2="396" y2="58"/>
+            <line x1="392" y1="22" x2="396" y2="18"/>
+            <line x1="360" y1="54" x2="356" y2="58"/>
+          </g>
+
+          <!-- Clouds -->
+          <g opacity=".85">
+            <ellipse cx="60" cy="32" rx="28" ry="12" fill="white"/>
+            <ellipse cx="80" cy="26" rx="22" ry="11" fill="white"/>
+            <ellipse cx="40" cy="28" rx="18" ry="10" fill="white"/>
+          </g>
+          <g opacity=".7">
+            <ellipse cx="220" cy="22" rx="22" ry="9" fill="white"/>
+            <ellipse cx="236" cy="17" rx="17" ry="8" fill="white"/>
+            <ellipse cx="204" cy="19" rx="14" ry="7" fill="white"/>
+          </g>
+
+          <!-- Sea -->
+          <rect x="0" y="140" width="420" height="80" fill="url(#sea)"/>
+
+          <!-- Sea surface movement -->
+          <path fill="#3A8FBF" opacity=".5">
+            <animate attributeName="d" dur="4s" repeatCount="indefinite" calcMode="spline"
+              keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95" keyTimes="0;0.5;1"
+              values="M0,145 Q52,138 105,145 Q157,152 210,145 Q262,138 315,145 Q367,152 420,145 L420,220 L0,220 Z;
+                      M0,147 Q52,140 105,147 Q157,154 210,147 Q262,140 315,147 Q367,154 420,147 L420,220 L0,220 Z;
+                      M0,145 Q52,138 105,145 Q157,152 210,145 Q262,138 315,145 Q367,152 420,145 L420,220 L0,220 Z"/>
+          </path>
+          <path fill="#2A7AAF" opacity=".4">
+            <animate attributeName="d" dur="5.5s" repeatCount="indefinite" calcMode="spline"
+              keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95" keyTimes="0;0.5;1"
+              values="M0,155 Q70,148 140,155 Q210,162 280,155 Q350,148 420,155 L420,220 L0,220 Z;
+                      M0,153 Q70,160 140,153 Q210,146 280,153 Q350,160 420,153 L420,220 L0,220 Z;
+                      M0,155 Q70,148 140,155 Q210,162 280,155 Q350,148 420,155 L420,220 L0,220 Z"/>
+          </path>
+          <path fill="#1E6A9A" opacity=".5">
+            <animate attributeName="d" dur="7s" repeatCount="indefinite" calcMode="spline"
+              keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95" keyTimes="0;0.5;1"
+              values="M0,165 Q84,158 168,165 Q252,172 336,165 Q378,162 420,165 L420,220 L0,220 Z;
+                      M0,163 Q84,170 168,163 Q252,156 336,163 Q378,166 420,163 L420,220 L0,220 Z;
+                      M0,165 Q84,158 168,165 Q252,172 336,165 Q378,162 420,165 L420,220 L0,220 Z"/>
+          </path>
+          <!-- Sparkling highlights on water -->
+          <path stroke="white" stroke-width="1.5" fill="none">
+            <animate attributeName="d" dur="3s" repeatCount="indefinite" calcMode="spline"
+              keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95" keyTimes="0;0.5;1"
+              values="M0,148 Q35,142 70,148 Q105,154 140,148 Q175,142 210,148 Q245,154 280,148 Q315,142 350,148 Q385,154 420,148;
+                      M0,150 Q35,144 70,150 Q105,156 140,150 Q175,144 210,150 Q245,156 280,150 Q315,144 350,150 Q385,156 420,150;
+                      M0,148 Q35,142 70,148 Q105,154 140,148 Q175,142 210,148 Q245,154 280,148 Q315,142 350,148 Q385,154 420,148"/>
+            <animate attributeName="opacity" dur="3s" repeatCount="indefinite" values=".3;.15;.3"/>
+          </path>
+
+          <!-- === EILAND VAN VERLIES (left) === -->
+          <!-- Island base -->
+          <ellipse cx="85" cy="150" rx="72" ry="20" fill="#6B5A3E"/>
+          <ellipse cx="85" cy="143" rx="66" ry="19" fill="url(#isle-loss)"/>
+          <!-- Small rocks -->
+          <ellipse cx="30" cy="152" rx="12" ry="5" fill="#8B7355" opacity=".6"/>
+          <ellipse cx="148" cy="153" rx="10" ry="4" fill="#8B7355" opacity=".5"/>
+
+          <!-- Dark/bare tree on loss island -->
+          <line x1="80" y1="140" x2="80" y2="100" stroke="#4A3520" stroke-width="3.5"/>
+          <line x1="80" y1="118" x2="62" y2="106" stroke="#4A3520" stroke-width="2.5"/>
+          <line x1="80" y1="112" x2="98" y2="102" stroke="#4A3520" stroke-width="2.5"/>
+          <line x1="80" y1="108" x2="66" y2="96" stroke="#4A3520" stroke-width="2"/>
+          <line x1="80" y1="105" x2="94" y2="95" stroke="#4A3520" stroke-width="2"/>
+          <!-- Rain cloud over loss island -->
+          <ellipse cx="78" cy="80" rx="24" ry="10" fill="#8FA0B0"/>
+          <ellipse cx="92" cy="75" rx="18" ry="9" fill="#9AAABB"/>
+          <ellipse cx="64" cy="77" rx="16" ry="8" fill="#8FA0B0"/>
+          <!-- Rain drops -->
+          <g stroke="#6A8FA8" stroke-width="1.5" stroke-linecap="round" opacity=".7">
+            <line x1="62" y1="92" x2="59" y2="99"/>
+            <line x1="72" y1="91" x2="69" y2="98"/>
+            <line x1="82" y1="92" x2="79" y2="99"/>
+            <line x1="92" y1="91" x2="89" y2="98"/>
+          </g>
+
+          <!-- Label verlies -->
+          <rect x="34" y="158" width="102" height="18" rx="9" fill="rgba(0,0,0,.28)"/>
+          <text x="85" y="171" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="white">Eiland van verlies</text>
+
+          <!-- === EILAND VAN HERSTEL (right) === -->
+          <!-- Island base -->
+          <ellipse cx="335" cy="150" rx="72" ry="20" fill="#1E5C3A"/>
+          <ellipse cx="335" cy="143" rx="66" ry="19" fill="url(#isle-heal)"/>
+          <!-- Small rocks -->
+          <ellipse cx="278" cy="153" rx="11" ry="4" fill="#2D7A4F" opacity=".6"/>
+          <ellipse cx="395" cy="152" rx="9" ry="4" fill="#2D7A4F" opacity=".5"/>
+
+          <!-- Trees on heal island -->
+          <line x1="318" y1="140" x2="318" y2="108" stroke="#2A5035" stroke-width="2.5"/>
+          <ellipse cx="318" cy="100" rx="16" ry="14" fill="#4CAF70"/>
+          <ellipse cx="316" cy="97" rx="13" ry="11" fill="#5DBE7A"/>
+          <line x1="340" y1="140" x2="340" y2="104" stroke="#2A5035" stroke-width="2.5"/>
+          <ellipse cx="340" cy="95" rx="18" ry="16" fill="#3D9E5A"/>
+          <ellipse cx="338" cy="91" rx="14" ry="13" fill="#4CAF70"/>
+          <line x1="358" y1="141" x2="358" y2="112" stroke="#2A5035" stroke-width="2"/>
+          <ellipse cx="358" cy="105" rx="13" ry="11" fill="#5DBE7A"/>
+          <!-- Flowers / small details -->
+          <circle cx="308" cy="143" r="3" fill="#FFD166"/>
+          <circle cx="352" cy="144" r="2.5" fill="#FF9F9F"/>
+          <circle cx="326" cy="144" r="2" fill="#FFD166"/>
+          <!-- Sun rays on this island -->
+          <circle cx="375" cy="90" r="6" fill="#FFE680" opacity=".4"/>
+
+          <!-- Label herstel -->
+          <rect x="284" y="158" width="102" height="18" rx="9" fill="rgba(0,0,0,.28)"/>
+          <text x="335" y="171" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="white">Eiland van herstel</text>
+
+          <!-- === BOAT sailing between islands (animated) === -->
+          <g>
+            <!-- Translation group: moves boat left↔right -->
+            <g>
+              <animateTransform attributeName="transform" type="translate"
+                values="-52,0; 52,0; -52,0"
+                dur="7s" repeatCount="indefinite" calcMode="spline"
+                keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"
+                keyTimes="0;0.5;1"/>
+              <!-- Gentle rock group -->
+              <g transform="translate(210,152)">
+                <animateTransform attributeName="transform" type="rotate"
+                  values="-2,0,-4; 2,0,-4; -2,0,-4"
+                  dur="2.5s" repeatCount="indefinite" calcMode="spline"
+                  keySplines="0.45 0.05 0.55 0.95; 0.45 0.05 0.55 0.95"
+                  keyTimes="0;0.5;1" additive="sum"/>
+                <!-- Hull shadow -->
+                <ellipse cx="0" cy="10" rx="26" ry="5" fill="#000" opacity=".12"/>
+                <!-- Hull -->
+                <path d="M-24,-4 Q-16,6 0,8 Q16,6 24,-4 Z" fill="#1B2B6B"/>
+                <path d="M-22,-4 Q0,2 22,-4" stroke="#111C4E" stroke-width="1" fill="none"/>
+                <!-- Deck -->
+                <rect x="-22" y="-8" width="44" height="5" rx="2.5" fill="#2A3F8F"/>
+                <!-- Mast -->
+                <line x1="0" y1="-8" x2="0" y2="-34" stroke="#5A3A1A" stroke-width="2.5"/>
+                <!-- Single sail -->
+                <path d="M0,-32 L22,-18 L0,-2 Z" fill="#D2E5F4" opacity=".95"/>
+                <line x1="0" y1="-28" x2="18" y2="-16" stroke="#7AAFD4" stroke-width=".8" opacity=".6"/>
+                <!-- Flag -->
+                <path d="M0,-34 L12,-29 L0,-24 Z" fill="#F9D84A"/>
+                <!-- Porthole -->
+                <circle cx="-8" cy="-1" r="3" fill="#7AAFD4" opacity=".7"/>
+                <circle cx="-8" cy="-1" r="1.5" fill="#D2E5F4" opacity=".8"/>
+                <!-- Wake ripples (move opposite to boat for realism) -->
+                <path d="M26,-2 Q34,-5 42,-2" stroke="white" stroke-width="1.5" fill="none" opacity=".4"/>
+                <path d="M28,2 Q38,-1 48,2" stroke="white" stroke-width="1" fill="none" opacity=".25"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="eilanden-tekst">
+        <p>Stel je voor dat verdriet verwerken is als varen op zee tussen twee eilanden. Aan de ene kant ligt het <strong style="color:#5A4530">Eiland van Verlies</strong> &mdash; daar voel je het verdriet, het gemis en de moeilijke dingen. Aan de andere kant ligt het <strong style="color:#1B5E38">Eiland van Herstel</strong> &mdash; daar is ruimte voor plezier, rust en nieuwe kracht.</p>
+        <p>Het geheim van goed rouwen is dat je <em>heen en weer vaart</em> tussen die twee eilanden. Je hoeft niet de hele tijd op het eiland van verlies te blijven. En je hoeft je ook niet schuldig te voelen als je even naar het eiland van herstel vaart en lacht met vrienden of iets leuks doet.</p>
+        <p>Beide eilanden horen erbij. Juist door ook naar het eiland van herstel te gaan, krijje je genoeg kracht om de moeilijke momenten op het eiland van verlies aan te kunnen. Jij mag gewoon leven &mdash; ook als je ouder in de gevangenis zit.</p>
+        <div class="eiland-legenda">
+          <div class="eiland-leg" style="background:var(--pink-light)"><h4 style="color:var(--pink-dark)">&#9928;&#65039; Eiland van verlies</h4><ul style="color:var(--pink-dark)"><li>Verdriet voelen</li><li>Je ouder missen</li><li>Huilen mag</li><li>Stilstaan bij wat er nu is</li></ul></div>
+          <div class="eiland-leg" style="background:var(--green-light)"><h4 style="color:#1B5E38">&#127807; Eiland van herstel</h4><ul style="color:#1B5E38"><li>Lachen en spelen</li><li>Afleiding zoeken</li><li>Tot rust komen</li><li>Nieuwe dingen doen</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Trots &amp; veerkracht</span>
+    <div class="section-title">Jij bent sterker dan je denkt</div>
+    <div class="trots-banner">
+      <h3>&#127807; Jij doet iets heel moeilijks</h3>
+      <p>Naast alle moeilijke gevoelens mag er ook iets zijn wat je trots maakt op jezelf.</p>
+      <p>Elke dag opstaan, naar school gaan, omgaan met wat er thuis speelt &mdash; dat vraagt ongelofelijk veel van je. Dat is geen kleine prestatie. Dat is veerkracht: het vermogen om door te gaan, ook als het zwaar is. Niet iedereen kan dat!</p>
+      <p>Veerkracht betekent niet dat je nooit verdrietig bent, of nooit omvalt. Het betekent dat je er toch steeds weer bovenop komt &mdash; op jouw eigen manier, op jouw eigen tempo.</p>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Hoe zwaar is jouw rugzak?</span>
+    <div class="section-title">Draaglast en draagkracht</div>
+    <div class="balans-wrap">
+      <div class="balans-uitleg">
+        <p>Stel je voor: jij draagt een rugzak. Alles wat moeilijk is in je leven, gaat daar in. Alles wat je kracht geeft, maakt die rugzak lichter.</p>
+        <p>De detentie van je ouder maakt je draaglast groter, dat is iets wat jij niet hebt gekozen en ook niet kunt veranderen. Maar je k&uacute;nt dingen doen die je draagkracht vergroten. Dat maakt de rugzak niet leeg, maar wel iets minder zwaar.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:end;margin:1.25rem 0">
+        <div style="background:var(--pink-light);border-radius:10px;padding:1rem;text-align:center">
+          <h4 style="color:var(--pink-dark);font-size:13px;font-weight:700;margin-bottom:.25rem">🎒 Draaglast</h4>
+          <div style="font-size:10px;color:var(--pink-dark);opacity:.75;margin-bottom:.5rem;font-style:italic">wat de rugzak zwaar maakt</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+            <li style="background:white;color:var(--pink-dark);font-size:11px;border-radius:6px;padding:4px 6px">Vader of moeder in detentie</li>
+            <li style="background:white;color:var(--pink-dark);font-size:11px;border-radius:6px;padding:4px 6px">Onzekerheid</li>
+            <li style="background:white;color:var(--pink-dark);font-size:11px;border-radius:6px;padding:4px 6px">Geheimen bewaren</li>
+            <li style="background:white;color:var(--pink-dark);font-size:11px;border-radius:6px;padding:4px 6px">Stress thuis</li>
+          </ul>
+        </div>
+        <div style="text-align:center;font-size:28px;padding-bottom:8px">&#9878;</div>
+        <div style="background:var(--blue-light);border-radius:10px;padding:1rem;text-align:center">
+          <h4 style="color:var(--navy);font-size:13px;font-weight:700;margin-bottom:.25rem">&#9889; Draagkracht</h4>
+          <div style="font-size:10px;color:var(--navy);opacity:.6;margin-bottom:.5rem;font-style:italic">wat de rugzak lichter maakt</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:5px">
+            <li style="background:white;color:var(--navy);font-size:11px;border-radius:6px;padding:4px 6px">Iemand die naar je luistert</li>
+            <li style="background:white;color:var(--navy);font-size:11px;border-radius:6px;padding:4px 6px">Bewegen of sporten</li>
+            <li style="background:white;color:var(--navy);font-size:11px;border-radius:6px;padding:4px 6px">Iets leuks doen</li>
+            <li style="background:white;color:var(--navy);font-size:11px;border-radius:6px;padding:4px 6px">Weten dat je niet alleen bent</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Quiz</span>
+    <div class="section-title">Wat is normaal om te voelen?</div>
+    <p class="section-sub">Spoiler: heel veel dingen. Doe de quiz en ontdek het zelf.</p>
+    <div class="quiz-wrap"><div id="quiz-container"></div></div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Veelgestelde vragen</span>
+    <div class="section-title">Vragen die veel kinderen hebben</div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is het mijn schuld wat mijn ouder heeft gedaan?<span>+</span></div><div class="faq-a">Nee. Absoluut niet. Wat jouw ouder heeft gedaan is zijn of haar verantwoordelijkheid &mdash; niet die van jou. Veel kinderen vragen zich dit af, maar het antwoord is altijd hetzelfde: het is niet jouw schuld.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe ga ik om met schaamte?<span>+</span></div><div class="faq-a">Schaamte voelen is heel begrijpelijk. Maar weet dat jij niets hebt gedaan om je voor te schamen. Wat jouw ouder heeft gedaan, zegt niets over wie j&iacute;j bent. Probeer iemand te vinden bij wie je je veilig voelt om over de schaamte te praten &mdash; dat helpt echt.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is het normaal dat ik mijn ouder mis, ook al ben ik ook boos?<span>+</span></div><div class="faq-a">Ja, dat is heel normaal. Je kunt tegelijk van iemand houden en boos op hen zijn. Die twee gevoelens kunnen prima naast elkaar bestaan. Veel kinderen voelen precies dit.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Mijn ouder is terug, maar alles voelt anders dan ik had gehoopt.<span>+</span></div><div class="faq-a">Dat is heel begrijpelijk. Geef jezelf de ruimte om daarin je eigen tempo te vinden. Probeer met elkaar te praten of te vragen of iemand anders je kan helpen woorden te geven aan wat je voelt, zodat je het met je ouder kan bespreken.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wat als ik niemand heb om mee te praten?<span>+</span></div><div class="faq-a">Dan kun je contact opnemen via deze website &mdash; anoniem als je wil. Of bel Exodus: 071-5161950. Expertisecentrum K I N D: 0800-5463000 (gratis). Jij hoeft dit niet alleen te dragen. Ook hebben we tips over hoe je het gesprek kunt aanknopen met de mensen om je heen, zie pagina &lsquo;hulp &amp; praten&rsquo;. Soms voel je je alleen, maar ben je dit niet. Praten met anderen verbindt en helpt echt!</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Hoe ga ik om met oordelen van anderen?<span>+</span></div><div class="faq-a">Helaas oordelen mensen soms. Dat is pijnlijk. Maar hun oordeel klopt niet &mdash; jij bent niet verantwoordelijk voor wat jouw ouder heeft gedaan. Jouw verhaal heeft meer lagen dan sommige mensen zien en weten. Soms willen ze alleen maar focussen op de slechte dingen, maar jij weet dat er ook goede dingen zijn &mdash; en vooral dat j&iacute;j goed bent. Het kan soms helpen om hierover te vertellen, maar het is ook jouw recht om deze mensen te negeren als je dat wilt. Jij en de mensen van wie je houdt, weten beter. Praat er met hen over en over hoe je het kunt aanpakken wanneer iemand vervelende dingen tegen je zegt.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ik heb zelf geen contact meer met mijn ouder. Mag ik dan toch verdrietig zijn?<span>+</span></div><div class="faq-a">Ja, absoluut. Jouw verdriet is echt en het mag er zijn &mdash; wat er ook aan voorafging. In beide gevallen is er verlies, en verlies mag worden gevoeld. Jouw gevoelens zijn geldig, wat de reden ook is.</div></div>
+  </div>
+  <div class="footer-bar"></div>
+  <div class="footer"><div><div class="footer-brand-name">Jij telt mee</div><div class="footer-brand-sub">Exodus Nederland</div></div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('verhalen')">Verhalen</span><span class="footer-link" onclick="showPage('hulp')">Hulp zoeken</span></div></div>
+  <div class="footer-bottom"><span>&copy; 2026 Miriam de Ruiter</span><span>Prototype</span></div>
+</div>
+
+<!-- HULP & PRATEN -->
+<div class="page" id="page-hulp">
+  <div class="hulp-hero">
+    <span class="section-label" style="color:rgba(255,255,255,.75)">Jij hoeft het niet alleen te dragen</span>
+    <h1>Praat erover,<br>wanneer jij wil</h1>
+    <p>Er zijn verschillende manieren om je verhaal te delen of vragen te stellen. Jij kiest wat voor jou werkt.</p>
+    <div class="safe-badge">&#128274; Alles is anoniem en veilig</div>
+  </div>
+  <div class="section">
+    <span class="section-label">Contact</span>
+    <div class="section-title">Hoe wil jij praten?</div>
+    <p class="section-sub">Je kiest zelf: chatten, bellen of mailen. Anoniem mag altijd.</p>
+    <div class="praat-grid">
+      <div class="praat-card"><span class="praat-icon">&#128140;</span><h3>Stuur een bericht</h3><p>Stuur ons een anoniem bericht via het contactformulier. We reageren binnen 2 dagen.</p><button class="btn-primary">Schrijf ons</button></div>
+      <div class="praat-card"><span class="praat-icon">&#128172;</span><h3>Chat met ons</h3><p>Liever direct chatten? Onze chat is beschikbaar op werkdagen. Anoniem en veilig.</p><button class="btn-dark">Start chat</button></div>
+      <div class="praat-card"><span class="praat-icon">&#128222;</span><h3>Bel ons</h3><p>Liever een stem horen? Bel Exodus of Expertisecentrum K I N D.</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <button class="btn-dark" style="font-size:12px">Exodus: 071-5161950</button>
+          <button class="btn-primary" style="font-size:12px">KIND: 0800-5463000</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Praattool</span>
+    <div class="section-title">Met wie wil je praten?</div>
+    <div class="waarom-praten">
+      <div class="waarom-praten-header"><span style="font-size:28px;flex-shrink:0">&#128172;</span><h3>Waarom is het goed om met iemand te praten?</h3></div>
+      <div class="waarom-praten-body">
+        <p>Wanneer je ouder in de gevangenis zit, heeft dat invloed op jouw leven. Dat kan heel lastig voelen. Het kan helpen om hierover te praten met iemand die je vertrouwt &mdash; zoals een vriend, familielid of iemand anders die jij goed kent. Dat kan spannend zijn, maar het kan ook fijn zijn als iemand weet wat er bij jou speelt, zodat ze je kunnen steunen wanneer je dat wil. Soms lucht het ook al op om gewoon even je verhaal te doen.</p>
+        <p>Om het aan iemand uit te leggen, kan het helpen als je zelf een beetje begrijpt wat er aan de hand is. Je kunt bijvoorbeeld met je ouder of iemand die er al vanaf weet bespreken hoe je jouw situatie onder woorden kunt brengen. Samen kun je bedenken wat je w&eacute;l wilt delen en wat je liever voor jezelf houdt.</p>
+        <p>Kies een moment dat voor jou goed voelt en zorg voor een plek waar je rustig kunt praten, zonder dat anderen meeluisteren. Als iemand meer vraagt dan jij wilt vertellen, mag je altijd aangeven dat je daar niet over wilt praten. Je kunt ook zeggen dat je hebt afgesproken om bepaalde dingen niet te delen.</p>
+        <p>Het hoeft ook niet alleen maar over de nare dingen te gaan. Je kunt ook juist de positieve dingen over je ouder vertellen &mdash; of dat je hen zo mist omdat je altijd samen leuke dingen deed. Dat ze nu vastzitten, betekent niet dat ze geen lieve ouder meer voor jou zijn.</p>
+        <div class="waarom-tip"><span style="font-size:16px;flex-shrink:0;margin-top:1px">&#128274;</span><p>Onthoud: Jij bepaalt wat je vertelt en hoe je dat doet.</p></div>
+      </div>
+    </div>
+    <div class="praat-tool">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:.75rem;line-height:1.65">Kies de persoon met wie je het gesprek wil aangaan voor een voorbeeld over hoe je het gesprek kan starten.</p>
+      <div class="person-chips">
+        <div class="chip" onclick="selectChip(this,'vriend')">Een vriend of vriendin</div>
+        <div class="chip" onclick="selectChip(this,'ouder')">Mijn andere ouder</div>
+        <div class="chip" onclick="selectChip(this,'school')">Een leraar of juf</div>
+        <div class="chip" onclick="selectChip(this,'familie')">Oma, opa of oom/tante</div>
+        <div class="chip" onclick="selectChip(this,'niemand')">Ik weet het niet</div>
+      </div>
+      <div class="chip-result" id="chip-result"></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Forum</span>
+    <div class="section-title">Wat andere kinderen vragen</div>
+    <p class="section-sub">Alle berichten worden goedgekeurd voordat ze zichtbaar zijn &mdash; zo blijft het veilig.</p>
+    <div class="forum-post"><div class="forum-meta"><div class="forum-avatar" style="background:var(--pink-light);color:var(--pink)">K</div><span class="forum-user">Kiki_12</span><span class="forum-time">2 uur geleden</span></div><h4>Hoe vertel ik het aan mijn beste vriendin?</h4><p>Ik wil het eigenlijk wel vertellen maar ben bang dat ze me anders gaat zien. Heeft iemand tips?</p><div style="font-size:11px;color:var(--muted);font-weight:600;margin-top:6px">&#128172; 8 reacties &middot; &#10084; 14</div></div>
+    <div class="forum-post"><div class="forum-meta"><div class="forum-avatar" style="background:var(--blue-light);color:var(--navy)">T</div><span class="forum-user">Thijs_10</span><span class="forum-time">gisteren</span></div><h4>Ik ga voor het eerst op bezoek &mdash; wat kan ik verwachten?</h4><p>Volgende week ga ik mijn papa voor het eerst zien. Ik ben best zenuwachtig. Iemand die dat ook voelde?</p><div style="font-size:11px;color:var(--muted);font-weight:600;margin-top:6px">&#128172; 12 reacties &middot; &#10084; 21</div></div>
+    <div class="forum-post"><div class="forum-meta"><div class="forum-avatar" style="background:var(--blue-light);color:var(--navy)">L</div><span class="forum-user">Layla_14</span><span class="forum-time">3 dagen geleden</span></div><h4>Mijn moeder is terug maar alles voelt anders</h4><p>Ik dacht dat alles beter zou zijn als ze terug was. Maar nu weet ik niet hoe ik met haar om moet gaan. Herkent iemand dit?</p><div style="font-size:11px;color:var(--muted);font-weight:600;margin-top:6px">&#128172; 9 reacties &middot; &#10084; 17</div></div>
+    <button class="btn-dark" style="width:100%;margin-top:.5rem">+ Stel jouw vraag (anoniem)</button>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Oefening</span>
+    <div class="section-title">Jouw netwerkkaart</div>
+    <div class="netwerk-wrap">
+      <div class="netwerk-rings">
+        <div class="ring ring-3"><div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:10px;font-weight:600;white-space:nowrap">Ruimere omgeving</div></div>
+        <div class="ring ring-2"><div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:10px;font-weight:600">Bekenden</div></div>
+        <div class="ring ring-1"><div style="font-size:10px;color:white;text-align:center;font-weight:600">Dichtbij<br>mij</div></div>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:.75rem;line-height:1.65">Schrijf namen op een blaadje en teken de cirkels erbij. Wie staat er het dichtst bij jou? Wie daarvan zou jou beter kunnen helpen door leuke dingen te doen of juist door te praten? Wie staat er wat verderaf en zou je wat dichter bij kunnen laten komen?</p>
+      <div><span class="name-chip">Mama / Papa</span><span class="name-chip">Oma / Opa</span><span class="name-chip">Beste vriend(in)</span><span class="name-chip">Broer / Zus</span><span class="name-chip">Leraar / Juf</span><span class="name-chip">Oom / Tante</span></div>
+    </div>
+  </div>
+  <div class="footer-bar"></div>
+  <div class="footer"><div><div class="footer-brand-name">Jij telt mee</div><div class="footer-brand-sub">Exodus Nederland &middot; Expertisecentrum K I N D</div></div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('verhalen')">Verhalen</span><span class="footer-link" onclick="showPage('gevoelens')">Gevoelens</span></div></div>
+  <div class="footer-bottom"><span>&copy; 2026 Miriam de Ruiter</span><span>Prototype</span></div>
+</div>
+
+<!-- TIPS -->
+<div class="page" id="page-tips">
+  <div class="tips-hero">
+    <span class="section-label">Handige tips</span>
+    <h1 style="font-family:'Playfair Display',serif;font-size:34px;color:var(--navy);font-weight:900;line-height:1.1;margin-bottom:.6rem">Tips voor<br>elke situatie</h1>
+    <p style="font-size:14px;color:#2A3A5A;max-width:420px;line-height:1.65;margin-top:.5rem;margin-left:auto;margin-right:auto">Praktische tips voor contact met je ouder, afleiding zoeken, copingsmechanismen, en meer.</p>
+  </div>
+  <div class="section">
+    <span class="section-label">Contact</span>
+    <div class="section-title">Contact met je ouder in detentie</div>
+    <div class="tips-list">
+      <div class="tip-item"><div class="tip-num">1</div><div><h4>Je hoeft het belletje of bezoek niet altijd leuk te maken</h4><p>De druk om het &ldquo;gezellig&rdquo; te hebben tijdens een bezoek of telefoontje is zwaar. Maar jij mag ook gewoon jezelf zijn &mdash; ook als je niet weet wat je moet zeggen of als je je even niet gezellig voelt.</p></div></div>
+      <div class="tip-item"><div class="tip-num">2</div><div><h4>Schuldgevoel over de telefoon wegdrukken?</h4><p>Als je ouder belt terwijl je met vrienden bent, mag je opnemen wanneer jij dat wil. Jij hebt ook een eigen leven &mdash; en dat is goed.</p></div></div>
+      <div class="tip-item"><div class="tip-num">3</div><div><h4>Wat als je ouder steeds weer terugvalt?</h4><p>Dat is heel verwarrend en pijnlijk. Het helpt om iemand te hebben buiten je gezin bij wie je hierover kunt praten. Vraag hulp om in gesprek te gaan met je ouder hierover.</p></div></div>
+      <div class="tip-item"><div class="tip-num">4</div><div><h4>Als je ouder weer thuiskomt</h4><p>Het is niet meer zoals het was voor de detentie van je ouder. De verhoudingen zijn veranderd. Jij bent gegroeid, jouw ouder heeft dat gemist. Geef het tijd &mdash; en geef jezelf de ruimte om je eigen gevoelens te hebben. Vraag of iemand zou willen helpen tussen een gesprek met jou en je ouder.</p></div></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Hoe ga jij ermee om?</span>
+    <div class="section-title">Copingsmechanismen</div>
+    <p class="section-sub">Dit is een moeilijk woord voor: de dingen die jij doet om met moeilijke situaties om te gaan. Iedereen doet dat op zijn eigen manier, bewust of onbewust.</p>
+    <div class="coping-intro">
+      <h4>&#128218; Wat zijn copingsmechanismen?</h4>
+      <p>Manieren om met stress, verdriet of moeilijke situaties om te gaan. Sommige helpen goed &mdash; andere lijken even te helpen maar maken het over een langere tijd moeilijker.</p>
+      <p>Herken je copingsmechanismen bij jezelf die je niet zo goed helpen? Dat is g&eacute;&eacute;n reden om je te schamen &mdash; het is een reden om erover te praten.</p>
+    </div>
+    <div class="coping-grid">
+      <div class="coping-card"><div class="coping-tag coping-ok">Helpt goed</div><div class="coping-top"><span style="font-size:20px">&#128172;</span><h4>Praten over je gevoel</h4></div><p>Je verhaal delen met iemand die je vertrouwt. Dat geeft lucht &mdash; ook al verandert de situatie niet.</p></div>
+      <div class="coping-card"><div class="coping-tag coping-ok">Helpt goed</div><div class="coping-top"><span style="font-size:20px">&#127939;</span><h4>Bewegen</h4></div><p>Sporten, wandelen, fietsen. Je lichaam helpt je hoofd leeg te maken.</p></div>
+      <div class="coping-card"><div class="coping-tag coping-ok">Helpt goed</div><div class="coping-top"><span style="font-size:20px">&#127912;</span><h4>Creatief bezig zijn</h4></div><p>Tekenen, schrijven, muziek maken. Gevoelens een plek geven zonder woorden.</p></div>
+      <div class="coping-card"><div class="coping-tag coping-ok">Helpt goed</div><div class="coping-top"><span style="font-size:20px">&#128516;</span><h4>Afleiding zoeken</h4></div><p>Even niet aan de situatie denken is g&eacute;&eacute;n vlucht &mdash; het is herstel. Dat heb je ook nodig.</p></div>
+      <div class="coping-card"><div class="coping-tag coping-ok">Helpt goed</div><div class="coping-top"><span style="font-size:20px">&#128197;</span><h4>Structuur en routine</h4></div><p>Vaste momenten geven houvast als alles onzeker voelt. School, eten, slapen.</p></div>
+      <div class="coping-card"><div class="coping-tag coping-ok">Helpt goed</div><div class="coping-top"><span style="font-size:20px">&#128221;</span><h4>Opschrijven wat je voelt</h4></div><p>In een dagboek of op een briefje. Je hoeft het aan niemand te laten zien.</p></div>
+      <div class="coping-card"><div class="coping-tag coping-let-op">Let op</div><div class="coping-top"><span style="font-size:20px">&#128683;</span><h4>Alles inslikken</h4></div><p>Doen alsof er niets is. Dat geeft even rust, maar gevoelens komen toch naar boven &mdash; het is beter als je ze een plek geeft.</p></div>
+      <div class="coping-card"><div class="coping-tag coping-let-op">Let op</div><div class="coping-top"><span style="font-size:20px">&#128679;</span><h4>Je alleen terugtrekken</h4></div><p>Soms heb je even rust nodig. Maar als je je langere tijd afsluit van iedereen, kan dat eenzamer maken. Zoek balans hierin.</p></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Afleiding &amp; herstel</span>
+    <div class="section-title">5 manieren om afleiding te zoeken</div>
+    <p class="section-sub">Afleiding zoeken is geen vlucht. Het is juist goed voor je &mdash; naast verdriet heb je ook ruimte voor plezier nodig.</p>
+    <div class="tips-list">
+      <div class="tip-item"><div class="tip-num">1</div><div><h4>Beweeg of sport</h4><p>Voetballen, dansen, fietsen &mdash; je lichaam helpt je hoofd te ontladen.</p></div></div>
+      <div class="tip-item"><div class="tip-num">2</div><div><h4>Maak muziek of luister ernaar</h4><p>Muziek kan zeggen wat woorden niet kunnen.</p></div></div>
+      <div class="tip-item"><div class="tip-num">3</div><div><h4>Spreek af met vrienden</h4><p>Gewoon lachen en doen wat je leuk vindt &mdash; dat mag.</p></div></div>
+      <div class="tip-item"><div class="tip-num">4</div><div><h4>Teken, schrijf of maak iets</h4><p>Creatief bezig zijn helpt om gevoelens een plek te geven.</p></div></div>
+      <div class="tip-item"><div class="tip-num">5</div><div><h4>Kijk een serie of film</h4><p>Even helemaal ergens anders zijn is prima.</p></div></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Oefening</span>
+    <div class="section-title">Cirkel van invloed</div>
+    <p class="section-sub">Het helpt om duidelijk te hebben voor jezelf wat jouw verantwoordelijkheid is en wat die van de ander is, zoals de volwassenen om je heen. Zo voorkom je dat je jezelf vergeet en overspoeld raakt. Hieronder staan een aantal voorbeelden van wat in jouw cirkel van invloed kan zitten en wat daarbuiten staat.</p>
+
+    <!-- SVG: Cirkel van invloed & betrokkenheid -->
+    <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="width:88%;max-width:360px;display:block;margin:1rem auto 1.25rem">
+      <!-- Outer circle: betrokkenheid -->
+      <circle cx="150" cy="150" r="138" fill="#FAE8EE" stroke="#E8A0B4" stroke-width="2"/>
+      <!-- Inner circle: invloed -->
+      <circle cx="150" cy="150" r="78" fill="#D2E5F4" stroke="#7AAFD4" stroke-width="2"/>
+
+      <!-- Label outer ring top -->
+      <text x="150" y="22" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#B0436A">Cirkel van betrokkenheid</text>
+      <text x="150" y="35" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#B0436A" opacity=".8">wat jou raakt maar je niet kunt veranderen</text>
+
+      <!-- Label inner circle -->
+      <text x="150" y="124" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1A3A5C">Cirkel van invloed</text>
+      <text x="150" y="136" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#1A3A5C" opacity=".8">wat jij kunt doen</text>
+
+      <!-- Inner items -->
+      <rect x="82" y="143" width="136" height="18" rx="9" fill="white" opacity=".85"/>
+      <text x="150" y="156" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9.5" fill="#1A3A5C">&#10003; Mijn gevoelens een plek geven</text>
+      <rect x="96" y="165" width="108" height="18" rx="9" fill="white" opacity=".85"/>
+      <text x="150" y="178" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9.5" fill="#1A3A5C">&#10003; Om hulp vragen</text>
+      <rect x="104" y="187" width="92" height="18" rx="9" fill="white" opacity=".85"/>
+      <text x="150" y="200" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9.5" fill="#1A3A5C">&#10003; Mijn schoolwerk</text>
+
+      <!-- Outer ring items (left) -->
+      <rect x="6" y="108" width="84" height="18" rx="9" fill="white" opacity=".7"/>
+      <text x="48" y="121" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#B0436A">&#10007; Wat mijn ouder doet</text>
+      <rect x="2" y="132" width="88" height="18" rx="9" fill="white" opacity=".7"/>
+      <text x="46" y="145" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#B0436A">&#10007; Hoe lang het duurt</text>
+      <rect x="8" y="156" width="78" height="18" rx="9" fill="white" opacity=".7"/>
+      <text x="47" y="169" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#B0436A">&#10007; Wat anderen denken</text>
+
+      <!-- Outer ring items (right) -->
+      <rect x="210" y="130" width="82" height="18" rx="9" fill="white" opacity=".7"/>
+      <text x="251" y="143" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#B0436A">&#10007; De rechtszaak</text>
+
+      <!-- Legend -->
+      <rect x="52" y="268" width="12" height="12" rx="3" fill="#D2E5F4" stroke="#7AAFD4" stroke-width="1.5"/>
+      <text x="70" y="279" font-family="DM Sans, sans-serif" font-size="9" fill="#555">Jouw invloed</text>
+      <rect x="152" y="268" width="12" height="12" rx="3" fill="#FAE8EE" stroke="#E8A0B4" stroke-width="1.5"/>
+      <text x="170" y="279" font-family="DM Sans, sans-serif" font-size="9" fill="#555">Jouw betrokkenheid</text>
+    </svg>
+
+    <div style="background:var(--white);border-radius:14px;padding:1.5rem;border:1.5px solid var(--border)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:var(--blue-light);border-radius:10px;padding:1rem"><div style="font-size:12px;font-weight:700;color:var(--navy);margin-bottom:.5rem">W&Eacute;L mijn taak</div><ul style="list-style:none;display:flex;flex-direction:column;gap:6px"><li style="font-size:12px;color:var(--navy)">&#10003; Mijn eigen gevoelens</li><li style="font-size:12px;color:var(--navy)">&#10003; Mijn schoolwerk</li><li style="font-size:12px;color:var(--navy)">&#10003; Om hulp vragen</li><li style="font-size:12px;color:var(--navy)">&#10003; Hoe ik met anderen omga</li></ul></div>
+        <div style="background:var(--pink-light);border-radius:10px;padding:1rem"><div style="font-size:12px;font-weight:700;color:var(--pink-dark);margin-bottom:.5rem">Niet mijn taak</div><ul style="list-style:none;display:flex;flex-direction:column;gap:6px"><li style="font-size:12px;color:var(--pink-dark)">&#10007; Mijn ouder blij maken</li><li style="font-size:12px;color:var(--pink-dark)">&#10007; Geld regelen</li><li style="font-size:12px;color:var(--pink-dark)">&#10007; Geheimen bewaren</li><li style="font-size:12px;color:var(--pink-dark)">&#10007; Zorgen voor broers en zussen</li></ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bar"></div>
+  <div class="footer"><div><div class="footer-brand-name">Jij telt mee</div><div class="footer-brand-sub">Exodus Nederland</div></div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('hulp')">Hulp &amp; praten</span></div></div>
+  <div class="footer-bottom"><span>&copy; 2026 Miriam de Ruiter</span><span>Prototype</span></div>
+</div>
+
+<!-- DE WERELD VAN DETENTIE -->
+<div class="page" id="page-wereld">
+  <div class="wereld-hero">
+    <span class="section-label" style="color:rgba(255,255,255,.7)">De wereld van detentie</span>
+    <h1 style="font-family:'Playfair Display',serif;font-size:34px;color:white;font-weight:900;line-height:1.1;margin-bottom:.6rem">Hoe ziet de gevangenis er eigenlijk uit?</h1>
+    <div class="pi-badge">
+      <span style="font-size:22px;flex-shrink:0">&#127968;</span>
+      <p>Een gevangenis heet officieel een <strong>penitentiaire inrichting</strong>, of kortweg een <strong>PI</strong>. In Nederland zijn er veel verschillende PI&rsquo;s &mdash; sommige zijn groter, sommige zijn kleiner. Hier lees je hoe het er in het algemeen uitziet en wat je kunt verwachten.</p>
+    </div>
+  </div>
+  <div class="section">
+    <span class="section-label">Als je ouder net is opgepakt</span>
+    <div class="section-title">Eerste hulp bij arrestatie</div>
+    <div class="first-aid">
+      <h3>Eerste hulp bij arrestatie</h3>
+      <ul class="first-aid-list">
+        <li>Je ouder wordt naar een politiebureau gebracht. Daarna soms naar een huis van bewaring &mdash; dat is een soort gevangenis terwijl de rechtszaak nog loopt.</li>
+        <li>Je mag kleding, boeken en andere spullen afgeven &mdash; vraag een volwassene om je daarbij te helpen.</li>
+        <li>Contact kan op veel verschillende manieren: via brieven, telefoon en soms ook via beeldbellen. Vaak mag je ook op bezoek. Vraag of een volwassene je kan helpen met het uitzoeken wanneer je op bezoek mag.</li>
+        <li>Het kan soms een tijd duren voordat je weet waar je ouder precies zit. Dat is onduidelijk en zwaar &mdash; dat is normaal om moeilijk te vinden.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Dagelijks leven in de PI</span>
+    <div class="section-title">Hoe ziet een dag in de gevangenis eruit?</div>
+    <p class="section-sub">Je vraagt je misschien af wat je ouder de hele dag doet. Tik op een kaartje om meer te lezen.</p>
+    <div class="gevangenis-grid">
+      <div class="gevangenis-card" onclick="toggleGevangenis(this)"><span class="g-icon">&#127968;</span><h4>Hoe ziet de cel eruit?</h4><p class="g-summary">Een cel is klein maar heeft alles wat nodig is.</p><div class="g-detail">Een cel in een Nederlandse PI heeft een bed, bureau en stoel, een kleine keuken met koelkastje, een eigen toilet en douche, en een televisie. Er is altijd een raam. De cel is voor jouw ouder een beetje hun eigen ruimte, ook al is die heel klein. Ze mogen eigen spullen meenemen &mdash; zoals foto&rsquo;s van jou.</div></div>
+      <div class="gevangenis-card" onclick="toggleGevangenis(this)"><span class="g-icon">&#127860;</span><h4>Wat eten ze?</h4><p class="g-summary">Er zijn vaste maaltijdmomenten.</p><div class="g-detail">Gedetineerden krijgen elke dag eten. Ontbijt en lunch bereiden ze vaak zelf op hun cel met producten die ze kunnen kopen via de gevangeniswinkel. De warme maaltijd wordt in de middag door de PI geleverd. Ze kunnen ook zelf extra eten en drinken bijkopen, zoals koekjes, fruit en koffie.</div></div>
+      <div class="gevangenis-card" onclick="toggleGevangenis(this)"><span class="g-icon">&#128336;</span><h4>Hoe ziet een dag eruit?</h4><p class="g-summary">Er zijn vaste tijden voor alles.</p><div class="g-detail">Een dag in de PI heeft een vaste structuur met vaste tijden om op te staan, te eten en activiteiten te doen. Overdag kunnen ze werken, buiten lopen op de binnenplaats of sporten. &rsquo;s Avonds zijn gedetineerden op hun cel en kunnen ze tv kijken, lezen of andere dingen doen. Wie zich goed gedraagt, kan ook meedoen aan een avondprogramma. Er zijn ook vaste beltijden en bezoekmomenten &mdash; waarop jij je ouder even kunt horen of zien.</div></div>
+      <div class="gevangenis-card" onclick="toggleGevangenis(this)"><span class="g-icon">&#9917;</span><h4>Wat mogen ze doen?</h4><p class="g-summary">Sporten, leren en meer.</p><div class="g-detail">Gedetineerden kunnen overdag van alles doen: sporten, meedoen aan een cursus of opleiding, werken binnen de PI en naar de recreatiezaal gaan. Op hun cel mogen ze lezen, schrijven, tekenen en tv kijken. Veel PI&rsquo;s hebben ook een bibliotheek, een kerk of een gebedsruimte.</div></div>
+      <div class="gevangenis-card" onclick="toggleGevangenis(this)"><span class="g-icon">&#128248;</span><h4>Wat dragen ze?</h4><p class="g-summary">Eigen kleren of gevangeniskleding?</p><div class="g-detail">In Nederlandse PI&rsquo;s dragen gedetineerden geen gevangenisuniform. Ze mogen gewoon hun eigen kleding dragen. Kleding kan worden opgestuurd of meegegeven bij een bezoek. Check van tevoren bij de PI wat de regels zijn, want dat kan per inrichting iets verschillen.</div></div>
+      <div class="gevangenis-card" onclick="toggleGevangenis(this)"><span class="g-icon">&#128100;</span><h4>Zijn ze de hele dag alleen?</h4><p class="g-summary">Nee, er zijn ook andere mensen.</p><div class="g-detail">Nee, je ouder is overdag niet alleen. Er zijn andere gedetineerden op de afdeling, bewaarders (PIW&rsquo;ers) en soms ook begeleiders of vrijwilligers. Er zijn ook gezamenlijke activiteiten. &rsquo;s Avonds en &rsquo;s nachts is iedereen op hun eigen cel. PIW&rsquo;ers zorgen dag en nacht voor de veiligheid in de gevangenis.</div></div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);line-height:1.55;text-align:center;margin-top:.25rem">&#128077; Tik op een kaartje om meer te lezen</p>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Op bezoek</span>
+    <div class="section-title">Op bezoek in de PI: wat kun je verwachten?</div>
+    <div class="first-aid" style="background:var(--blue-light);border-left-color:var(--navy)">
+      <h3 style="color:var(--navy)">Zo gaat een bezoek</h3>
+      <ul class="first-aid-list" style="">
+        <li style="color:#1A2A5A">Je meldt je aan bij de ingang van de PI. Er is altijd een balie waar je aangeeft dat je er bent.</li>
+        <li style="color:#1A2A5A">Je moet vanaf een bepaalde leeftijd je legitimatiebewijs laten zien, dit verschilt per PI. Zorg dat je die meeneemt, zonder legitimatie kom je niet naar binnen. Vraag een volwassene om je te helpen checken of jij er eentje mee moet hebben.</li>
+        <li style="color:#1A2A5A">Je spullen gaan in een kluis bij de ingang. Je mag niet alles zomaar meenemen naar binnen, zoals je telefoon. Check van tevoren wat er allemaal mee mag.</li>
+        <li style="color:#1A2A5A">Je loopt door een detectiepoortje. Dit reageert op metaal. Doe je sieraden af en draag geen kleding met veel metalen onderdelen.</li>
+        <li style="color:#1A2A5A">Je wordt naar de bezoekruimte gebracht. Daar wacht je tot je ouder wordt gebracht.</li>
+        <li style="color:#1A2A5A">Het bezoek vindt plaats in een speciale ruimte met tafels en stoelen. Er zijn altijd medewerkers aanwezig in de ruimte.</li>
+        <li style="color:#1A2A5A">Het bezoek duurt een bepaalde tijd &mdash; dat verschilt per PI. Je ouder weet wanneer het bezoekuur is.</li>
+        <li style="color:#1A2A5A">Soms zijn er kindvriendelijke bezoekuren, vraag of de PI deze aanbiedt. Hier mag je één of meerdere uren met je ouder spelen en kletsen.</li>
+      </ul>
+    </div>
+    <div class="bezoek-check" style="margin-top:1rem">
+      <h3>&#9989; Checklist: dit neem je mee</h3>
+      <ul>
+        <li>Je legitimatiebewijs (paspoort of ID-kaart)</li>
+        <li>Eventueel wat muntgeld voor een drankje of snoep uit de automaat</li>
+        <li>Geen grote tas &mdash; of een kleine transparante tas</li>
+        <li>Als je iets wil meegeven (kleding, boek) dan moet dit van tevoren zijn goedgekeurd. Vraag een volwassene om hierbij te helpen.</li>
+      </ul>
+    </div>
+    <div class="volw-tip">
+      <span style="font-size:16px;flex-shrink:0;margin-top:1px">&#128100;</span>
+      <p><strong>Vraag een volwassene:</strong> elke PI heeft net iets andere regels. Laat een volwassene van tevoren de regels checken op de website van de PI. Zo kom je niet voor verassingen te staan.</p>
+    </div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wat als ik het bezoek moeilijk vind of ga huilen?<span>+</span></div><div class="faq-a">Dat is heel normaal en dat mag. Veel kinderen vinden het emotioneel om hun ouder in de gevangenis te zien. Je hoeft niet sterk te doen. En als je even niet meer wil, mag je ook naar huis &mdash; je bent niet verplicht om het hele bezoekuur te blijven.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Mag ik mijn ouder knuffelen bij het bezoek?<span>+</span></div><div class="faq-a">Dat hangt af van de PI en de afdeling. Bij sommige PI&rsquo;s mag je bij aankomst en afscheid een knuffel geven. Tijdens het bezoek moet je aan tafel zitten. In strengere beveiligde afdelingen is aanraking soms niet toegestaan. Vraag dit van tevoren na, dan weet je wat je kunt verwachten en kom je niet teleurgesteld thuis. Soms zijn er kindvriendelijke bezoekuren, vraag of de PI deze aanbiedt. Hier mag je &eacute;&eacute;n of meerdere uren met je ouder spelen en kletsen, maar vooral: knuffelen.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wat als ik helemaal niet op bezoek wil?<span>+</span></div><div class="faq-a">Dat is ook helemaal goed. Je hoeft niet op bezoek als je dat niet wil. Jij bepaalt. Er is geen verplichting. Als je er later van gedachten over verandert, kun je alsnog besluiten om te gaan. Praat erover met iemand die je vertrouwt als je twijfelt.</div></div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Bellen</span>
+    <div class="section-title">Bellen met je ouder</div>
+    <div class="tips-list">
+      <div class="tip-item"><div class="tip-num">1</div><div><h4>Je ouder belt jou &mdash; niet andersom</h4><p>Vanuit de gevangenis kan je ouder naar buiten bellen, maar jij kunt niet zomaar de gevangenis bellen. Je ouder heeft een lijst met goedgekeurde telefoonnummers. Jouw nummer moet op die lijst staan, voordat je ouder jou kan bellen. Vraag een volwassene om dit te regelen als dit nog niet gebeurd is.</p></div></div>
+      <div class="tip-item"><div class="tip-num">2</div><div><h4>Er zijn vaste belmomenten</h4><p>Je ouder kan niet op elk moment van de dag bellen. Er zijn vaste tijden waarop bellen is toegestaan &mdash; dit verschilt per PI. Je ouder weet welke tijden voor hen gelden en kan dit doorgeven. Jullie kunnen afspreken wanneer jullie wel of niet te bellen. Dan weten jullie allebei waar je aan toe bent.</p></div></div>
+      <div class="tip-item"><div class="tip-num">3</div><div><h4>Soms is beeldbellen mogelijk</h4><p>Steeds meer PI&rsquo;s bieden beeldbellen aan. Dan kun je je ouder ook zien. Of dit kan, hangt af van de PI en de afdeling. Vraag een volwassene om dit na te vragen bij de gevangenis.</p></div></div>
+    </div>
+  </div>
+  <div class="footer-bar"></div>
+  <div class="footer"><div><div class="footer-brand-name">Jij telt mee</div><div class="footer-brand-sub">Exodus Nederland &middot; Expertisecentrum K I N D &middot; notmycrime.nl</div></div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('tips')">Tips</span><span class="footer-link" onclick="showPage('hulp')">Hulp zoeken</span></div></div>
+  <div class="footer-bottom"><span>&copy; 2026 Miriam de Ruiter</span><span>Prototype</span></div>
+</div>
+
+<!-- KIJKEN & LUISTEREN -->
+<div class="page" id="page-media">
+  <div class="media-hero">
+    <span class="section-label" style="color:rgba(255,255,255,.7)">Kijken &amp; luisteren</span>
+    <h1 style="font-family:'Playfair Display',serif;font-size:34px;color:white;font-weight:900;line-height:1.1;margin-bottom:.6rem">Luister, kijk<br>&amp; herken jezelf</h1>
+    <p style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.65;max-width:420px;margin-left:auto;margin-right:auto">Films, podcasts en series waarin jij je misschien herkent, of gewoon meer over deze situatie kunt leren.</p>
+  </div>
+  <div class="section">
+    <span class="section-label">Voor kinderen (8&ndash;12 jaar)</span>
+    <div class="section-title">Filmpjes &amp; video&rsquo;s</div>
+    <div class="media-card" onclick="window.open('https://www.youtube.com/watch?v=LuhYoOeJte8','_blank')"><div class="media-icon">&#9654;</div><div><h4>Op bezoek in de gevangenis en ervaringen</h4><p>Kinderen nemen je mee op bezoek in de gevangenis en vertellen hoe ze het vinden dat hun ouder in de gevangenis zit.</p><div class="ext-link">YouTube &#8594;</div></div></div>
+    <div class="media-card" onclick="window.open('https://www.youtube.com/watch?v=k5Jj_zd9fXM','_blank')"><div class="media-icon">&#9654;</div><div><h4>Verhaal van Selena (12)</h4><p>Een kind vertelt over haar verhaal.</p><div class="ext-link">YouTube &#8594;</div></div></div>
+    <div class="media-card" onclick="window.open('https://www.youtube.com/watch?v=cXEYxAEpznA','_blank')"><div class="media-icon">&#9654;</div><div><h4>Gevangenis bezoeken als kind, en hoe ziet de dag eruit daar?</h4><p>Op bezoek bij je vader of moeder in de gevangenis. Wat kun je verwachten bij een bezoek, wat doet hij op een dag en wat zijn ouder-kind dagen?</p><div class="ext-link">YouTube &#8594;</div></div></div>
+    <div class="media-card" onclick="window.open('https://www.youtube.com/watch?v=PZFxdnUPaD4','_blank')"><div class="media-icon" style="background:var(--pink-light)">&#9654;</div><div><h4>Jij bent niet de enige</h4><p>Madhu (17) vertelt over haar ervaring. Haar vader zat in het buitenland vastgezeten. Daarna kort in Nederland.</p><div class="ext-link">YouTube &#8594;</div></div></div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <span class="section-label">Voor jongeren (12&ndash;18 jaar)</span>
+    <div class="section-title">Series &amp; podcasts</div>
+    <div class="media-card" onclick="window.open('https://open.spotify.com/episode/4hJ1bruJzic8KtyCTGEFuN','_blank')"><div class="media-icon">&#127897;</div><div><h4>Podcast: Als papa vastzit</h4><p>Hoe is het als een van je ouders in de gevangenis zit?</p><div class="ext-link">Spotify &#8594;</div></div></div>
+    <div class="media-card" onclick="window.open('https://npo.nl/start/serie/brandmerk/afleveringen/seizoen-1','_blank')"><div class="media-icon" style="background:var(--pink-light)">&#128250;</div><div><h4>Brandmerk &mdash; seizoen 1</h4><p>NPO-serie waarin jongvolwassen vertellen over hun verhaal.</p><div class="ext-link">NPO Start &#8594;</div></div></div>
+    <div class="media-card" onclick="window.open('https://npo.nl/start/serie/brandmerk/afleveringen/seizoen-2','_blank')"><div class="media-icon" style="background:var(--pink-light)">&#128250;</div><div><h4>Brandmerk &mdash; seizoen 2</h4><p>Het vervolg &mdash; meer verhalen, meer perspectieven.</p><div class="ext-link">NPO Start &#8594;</div></div></div>
+  </div>
+  <div class="footer-bar"></div>
+  <div class="footer"><div><div class="footer-brand-name">Jij telt mee</div><div class="footer-brand-sub">Exodus Nederland &middot; Expertisecentrum K I N D</div></div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('tips')">Tips</span><span class="footer-link" onclick="showPage('hulp')">Hulp zoeken</span></div></div>
+  <div class="footer-bottom"><span>&copy; 2026 Miriam de Ruiter</span><span>Prototype</span></div>
+</div>
+</div>
+
+<!-- BOTTOM TAB BAR -->
+<nav class="bottom-nav" id="bottom-nav">
+  <button class="bottom-nav-item active" id="bn-home" onclick="showPage('home')" aria-label="Home">
+    <span class="bn-icon">&#127968;</span>
+    <span class="bn-label">Home</span>
+  </button>
+  <button class="bottom-nav-item" id="bn-verhalen" onclick="showPage('verhalen')" aria-label="Verhalen">
+    <span class="bn-icon">&#128214;</span>
+    <span class="bn-label">Verhalen</span>
+  </button>
+  <button class="bottom-nav-item bn-hulp" id="bn-hulp" onclick="showPage('hulp')" aria-label="Hulp">
+    <span class="bn-icon">&#128172;</span>
+    <span class="bn-label">Hulp</span>
+  </button>
+  <button class="bottom-nav-item" id="bn-gevoelens" onclick="showPage('gevoelens')" aria-label="Gevoelens">
+    <span class="bn-icon">&#127754;</span>
+    <span class="bn-label">Gevoelens</span>
+  </button>
+  <button class="bottom-nav-item" id="bn-tips" onclick="showPage('tips')" aria-label="Tips">
+    <span class="bn-icon">&#9889;</span>
+    <span class="bn-label">Tips</span>
+  </button>
+  <button class="bottom-nav-item" id="bn-wereld" onclick="showPage('wereld')" aria-label="Detentie">
+    <span class="bn-icon">&#127968;</span>
+    <span class="bn-label">Detentie</span>
+  </button>
+</nav>
+
+<!-- STICKY HULP CTA -->
+<button class="sticky-hulp hidden" id="sticky-hulp" onclick="showPage('hulp')">&#128172; Hulp zoeken</button>
+
+<script>
+
+const pageOrder=['home','verhalen','gevoelens','hulp','tips','wereld','media'];
+let currentPage='home';
+
+// Push initial state so the very first "back" goes to home
+try { history.replaceState({page:'home'}, '', '#home'); } catch(e){}
+
+function showPage(name, addHistory=true){
+  if(name===currentPage) return;
+  const fromIdx=pageOrder.indexOf(currentPage);
+  const toIdx=pageOrder.indexOf(name);
+  const dir=toIdx>fromIdx?1:-1;
+
+  const fromEl=document.getElementById('page-'+currentPage);
+  const toEl=document.getElementById('page-'+name);
+  if(!fromEl||!toEl) return;
+
+  // Animate out
+  fromEl.classList.remove('active');
+  fromEl.classList.add(dir===1?'slide-out-left':'slide-out-right');
+  setTimeout(()=>fromEl.classList.remove('slide-out-left','slide-out-right'),300);
+
+  // Animate in
+  toEl.classList.add('active',dir===1?'slide-in-right':'slide-in-left');
+  setTimeout(()=>toEl.classList.remove('slide-in-right','slide-in-left'),300);
+
+  currentPage=name;
+
+  // Push to browser history so back button works
+  if(addHistory){ try{ history.pushState({page:name}, '', '#'+name); }catch(e){} }
+
+  // Update drawer active
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  const dnav=document.getElementById('dnav-'+name);
+  if(dnav) dnav.classList.add('active');
+
+  // Update bottom nav active
+  document.querySelectorAll('.bottom-nav-item').forEach(b=>b.classList.remove('active'));
+  const bn=document.getElementById('bn-'+name);
+  if(bn) bn.classList.add('active');
+
+  // Sticky hulp: show on non-hulp pages
+  const stickyHulp=document.getElementById('sticky-hulp');
+  if(stickyHulp){
+    if(name==='hulp') stickyHulp.classList.add('hidden');
+    else stickyHulp.classList.remove('hidden');
+  }
+
+  try{ window.scrollTo({top:0,behavior:'instant'}); }
+  catch(e){ window.scrollTo(0,0); }
+}
+
+// Handle browser back/forward button
+window.addEventListener('popstate', e=>{
+  const page=(e.state&&e.state.page) ? e.state.page : 'home';
+  showPage(page, false);
+});
+function toggleDrawer(){
+  const d=document.getElementById('nav-drawer');
+  const h=document.getElementById('hamburger');
+  const open=d.classList.contains('open');
+  d.classList.toggle('open',!open);
+  h.classList.toggle('open',!open);
+}
+function closeDrawer(){
+  document.getElementById('nav-drawer').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+function toggleFaq(el){
+  const a=el.nextElementSibling;
+  const open=a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.faq-q span').forEach(s=>s.textContent='+');
+  if(!open){a.classList.add('open');el.querySelector('span').textContent='\u2212';}
+}
+function toggleGevangenis(card){
+  const isOpen=card.classList.contains('open');
+  document.querySelectorAll('.gevangenis-card').forEach(c=>c.classList.remove('open'));
+  if(!isOpen) card.classList.add('open');
+}
+const chipTexts={
+  vriend:'Kies een rustig moment, niet in het openbaar. Je hoeft niet alles te vertellen — zeg alleen wat jij wil. Je kunt beginnen met: "Er is iets thuis waar ik je over wil vertellen. Ik vertel het je omdat ik jou vertrouw."',
+  ouder:'Het kan helpen om te zeggen dat je vragen hebt. Begin met: "Ik wil je iets vragen over vader/moeder. Ik begrijp dat het moeilijk is, maar het gaat ook over mijn leven." Jij hebt er recht op antwoorden te krijgen.',
+  school:'Vertel je leraar of juf alleen wat je wil. Vraag of het vertrouwelijk blijft. Je kunt beginnen met: "Er is iets thuis wat mij bezighoudt. Ik wil het je vertellen zodat je begrijpt waarom ik soms afgeleid ben."',
+  familie:'Familie kent jou al. Kies iemand bij wie je je veilig voelt. Je kunt vragen: "Mag ik jou iets vertellen? Ik wil er eigenlijk wel eens over praten."',
+  niemand:'Dat is ook ok\u00e9. Praten kan spannend zijn. Weet dat je ook anoniem een bericht kunt sturen via deze website. Of bel Exodus: 071-5161950, of KIND: 0800-5463000 (gratis).'
+};
+function selectChip(el,key){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  const r=document.getElementById('chip-result');
+  r.textContent=chipTexts[key];
+  r.className='chip-result show';
+}
+const herkenCounts={s1:47,s2:63,s3:38,s4:29};
+function herken(btn,id){
+  if(btn.classList.contains('liked'))return;
+  btn.classList.add('liked');
+  herkenCounts[id]++;
+  const n=herkenCounts[id];
+  document.getElementById('herken-count-'+id).textContent='· '+n+' kinderen ook';
+  const bev=document.getElementById('herken-bevestiging-'+id);
+  bev.textContent='Jij bent niet de enige. '+n+' andere kinderen herkennen dit ook. ❤️';
+  bev.className='herken-bevestiging show';
+}
+const vandaagReacties={
+  blij:'Wat fijn dat je je vandaag blij voelt! 🌟 Dat mag er zijn, ook als er moeilijke dingen spelen. Geniet ervan en koester dit moment.',
+  rustig:'Fijn dat je je rustig voelt. 🌿 Rust is heel waardevol. Je lichaam en hoofd hebben dat nodig. Laat die rust er lekker zijn.',
+  verdrietig:'Het is oké om verdrietig te zijn. 💙 Je hoeft dat niet weg te stoppen. Verdriet hoort erbij — en het gaat ook weer over. Je bent niet alleen.',
+  boos:'Boosheid mag er zijn. 💪 Het is een heel normaal gevoel als er dingen niet zijn zoals je ze wilt. Probeer het kwijt te raken op een fijne manier — bewegen helpt soms!',
+  bang:'Het is begrijpelijk dat je je bang voelt. 🤍 Angst is een signaal dat er iets is dat aandacht nodig heeft. Probeer iemand te vertellen hoe je je voelt — dat helpt echt.',
+  moe:'Moe zijn is ook een gevoel. 🌙 Jij draagt elke dag veel. Het is oké om te rusten. Je hoeft niet altijd sterk te zijn.'
+};
+function kiesGevoel(btn,gevoel){
+  document.querySelectorAll('.vandaag-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  const r=document.getElementById('vandaag-response');
+  r.textContent=vandaagReacties[gevoel];
+  r.className='vandaag-response show';
+}
+const quizData=[
+  {q:'Je bent boos op je ouder die in de gevangenis zit. Is dat normaal?',opts:['Nee, je moet hem/haar steunen','Ja, dat is heel normaal','Alleen als je ouder iets ergs heeft gedaan'],ans:1,fb:'Boosheid is een heel normaal gevoel. Je mag boos zijn \u2014 op de situatie, op je ouder, op het feit dat het zo loopt. Dat betekent niet dat je niet van hem of haar houdt.'},
+  {q:'Je bent ook een beetje opgelucht nu je ouder weg is. Is dat ok\u00e9?',opts:['Nee, dat is niet lief','Ja, dat kan er ook zijn','Alleen als je ouder gemeen was'],ans:1,fb:'Opluchting mag er ook zijn, zeker als er thuis veel spanning was. Dat zegt niets slechts over jou.'},
+  {q:'Je voelt je schuldig, alsof het jouw schuld is. Is dat logisch?',opts:['Ja, je had iets kunnen doen','Nee, het is nooit jouw schuld','Soms wel, soms niet'],ans:1,fb:'Het is nooit jouw schuld. Schuldgevoelens zijn begrijpelijk, maar niet terecht.'},
+  {q:'Je wil soms gewoon lol hebben en niet aan de situatie denken. Is dat ok?',opts:['Nee, dat is onverantwoordelijk','Ja, dat is heel gezond','Alleen als alles goed gaat thuis'],ans:1,fb:'Afleiding is juist goed voor je. Het heet herstel \u2014 naast verdriet heb je ook ruimte voor plezier nodig.'},
+  {q:'Je schaamt je voor wat je ouder heeft gedaan. Zijn er meer kinderen die dit voelen?',opts:['Nee, de meeste kinderen zijn trots','Ja, heel veel kinderen voelen dit','Alleen als hun vrienden het weten'],ans:1,fb:'Schaamte is een van de meest voorkomende gevoelens. Je bent hier zeker niet alleen in.'}
+];
+let qIdx=0;
+function renderQuiz(){
+  const c=document.getElementById('quiz-container');
+  if(!c)return;
+  if(qIdx>=quizData.length){
+    c.innerHTML='<div style="text-align:center;padding:1.5rem"><div style="font-size:36px;margin-bottom:.75rem">\uD83C\uDF89</div><div style="font-family:\'Playfair Display\',serif;font-size:20px;color:var(--navy);margin-bottom:.5rem">Klaar!</div><p style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:1rem">Het antwoord op alle vragen was hetzelfde: al deze gevoelens zijn normaal. Ze mogen er allemaal zijn.</p><button class="btn-primary" onclick="qIdx=0;renderQuiz()">Opnieuw doen</button></div>';
+    return;
+  }
+  const d=quizData[qIdx];
+  c.innerHTML='<div class="quiz-q">'+d.q+'</div><div class="quiz-options">'+d.opts.map((o,i)=>'<button class="quiz-opt" onclick="answerQuiz('+i+','+d.ans+',\''+d.fb.replace(/'/g,"\\'")+'\')">'+ o+'</button>').join('')+'</div><div class="quiz-feedback" id="qfb"></div><div class="quiz-nav"><span class="quiz-progress">Vraag '+(qIdx+1)+' van '+quizData.length+'</span><button class="btn-primary" id="quiz-next" style="display:none" onclick="qIdx++;renderQuiz()">Volgende &#8594;</button></div>';
+}
+function answerQuiz(chosen,correct,fb){
+  document.querySelectorAll('.quiz-opt').forEach((b,i)=>{b.disabled=true;if(i===correct)b.classList.add('correct');else if(i===chosen&&chosen!==correct)b.classList.add('wrong');});
+  const f=document.getElementById('qfb');
+  f.textContent=fb;
+  f.className='quiz-feedback show '+(chosen===correct?'ok':'also-ok');
+  document.getElementById('quiz-next').style.display='block';
+}
+renderQuiz();
+
+
+
+// ===== STICKY HULP: show after scroll =====
+window.addEventListener('scroll',()=>{
+  const sh=document.getElementById('sticky-hulp');
+  if(!sh) return;
+  if(currentPage==='hulp'){sh.classList.add('hidden');return;}
+  if(window.scrollY>120) sh.classList.remove('hidden');
+  else sh.classList.add('hidden');
+},{passive:true});
+
+</script>
+</body>
+</html>
